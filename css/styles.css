@@ -1,0 +1,69 @@
+body{
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+
+    /*FUENTES*/
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased; /*suavisa la fuente*/
+    -moz-font-smoothing: antialiased; /*para mozila*/
+    -moz-osx-font-smoothing: antialiased; /*para mac*/
+}
+#header{
+    height: 120px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    border-top: 3px solid #61dafb;
+    background: white;
+}
+#logo{
+    width: 30%;
+    font-size: 30px;
+    float: left;
+    margin: 35px;
+}
+
+#logo img{
+    display: block; /*asi se puede meter margin*/
+    float: left;
+    height: 60px;
+    margin-top: -9px;
+    margin-right: -10px;
+}
+
+#brand{
+    display: block;
+    margin: 0px;
+    float: left;
+}
+.center{
+    width: 75%;
+    margin: 0px auto; /*centra el contenido*/
+}
+#menu{
+    width: 60%;
+    float: right;
+    font-size: 18px;
+
+}
+#menu ul{
+    line-height: 85px;/*la altura de la linea*/
+    width: 60%;
+    float: right;
+}
+#menu ul li{
+    display: inline-block; /*pone los elementos al lado */
+    list-style: none; /*saca los items*/
+    height: 46px;
+    margin-right: 15px;
+    margin-left: 15px;
+
+}
+#menu a{
+    text-decoration: none; /*saca los subrayados*/
+    color: #444;
+    transition: 300ms all; /*transicion al hover */
+}
+#menu a:hover {
+    color: #3bc2d3;
+}
