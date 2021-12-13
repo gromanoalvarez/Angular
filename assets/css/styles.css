@@ -27,7 +27,7 @@ body{
     float: left;
     height: 60px;
     margin-top: -9px;
-    margin-right: -10px;
+    margin-right: 5px;
     animation: girar infinite 30s linear; /* "girar" es el nombre que le pongo a la animacion, infinito es que lo haga por tiempo indefinido, linear que sea continuo*/
 }
 @keyframes girar{ /* significa que creamos la animacion girar */
@@ -77,4 +77,48 @@ body{
 .clearfix{ 
     clear: both;/*Bloquea los floats que no suban al header*/
     float: none; /* limpia los floats del header para que los floats del main no se cuelen arriba*/
+}
+#slider{
+    width: 100%;
+    height: 350px;
+    /* line-height: 320px; */
+    color:white;
+    text-shadow: 0px 0px 5px #444; /*sombreado de texto*/
+    background: rgba(97,218,251,1);
+background: -moz-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
+background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(97,218,251,1)), color-stop(100%, rgba(60,178,211,1)));
+background: -webkit-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
+background: -o-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
+background: -ms-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
+background: radial-gradient(ellipse at center, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61dafb', endColorstr='#3cb2d3', GradientType=1 );
+}
+
+#slider h1{
+    margin-top: 0.2px;
+    padding: 0px;
+    padding-top: 130px;
+    text-align: center;
+}
+.btn-white{
+    display: block;
+    background:white;
+    color: rgb(88, 88, 88);
+    padding: 10px;
+    width: 100px;
+    height: 35px;
+    margin: 0px auto; /*para centrarlo */
+    font-size: 18px;
+    text-transform: uppercase; /*lo hace al texto todo en mayus*/
+    text-shadow: none;
+    text-decoration: none;
+    line-height: 35px; /*lo pone al centro verticalmente*/
+    box-shadow: 0px 0px 5px rgb(88, 88, 88);
+    margin-top: 40px;
+    border-radius: 4px;
+    transition: 300ms all; /*tiempo de transicion con el hover*/
+}
+.btn-white:hover{
+    background: #444;
+    color: white;
 }
