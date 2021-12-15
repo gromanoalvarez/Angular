@@ -148,10 +148,45 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61dafb', end
 }
 .sidebar-item h3{
     text-transform: uppercase; /*texto en mayúscula*/
-    font-size: 17px;
+    font-size: 18px;
     margin: 0px;
     padding-bottom: 10px;
     margin-bottom: 10px;
     border-bottom: 3px solid #eee;
+}
+.sidebar-item .btn{
+    margin-top: 10px;
+    margin: 0px auto;
+}
+.btn{
+    display: block;
+    background-color: black;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    text-decoration: none;
+    max-width: 120px;
+    transition: 300ms all;
+    border: none;
+    cursor: pointer;
+}
+.btn-success{
+    background-color: rgb(23, 150,19);
+}
+.btn-success:hover{/*HOVER es para cuando PASO POR ENCIMA EL RATON*/
+    background-color: black;
+}
 
+input[type="text"]{ /*SELECTOR POR ETIQUETA [ATRIBUTO="VALOR"]*/
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ccc;
+    padding: 3px;
+    margin-bottom: 5px;
+    transition: 300ms all;
+}
+input[type="text"]:focus{ /*FOCUS es para cuando HAGO CLICK*/
+box-shadow: 0px 0px 5px #eee inset;/*box- shadow (es difuminado) INSET es para que lo meta por dentro del input*/
 }
