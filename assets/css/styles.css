@@ -178,18 +178,44 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61dafb', end
 .btn-success:hover{/*HOVER es para cuando PASO POR ENCIMA EL RATON*/
     background-color: black;
 }
-
-input[type="text"]{ /*SELECTOR POR ETIQUETA [ATRIBUTO="VALOR"]*/
+.mid-form{
+    width: 50%;
+    margin: 0px auto; /*Para que se centre automaticamente*/
+}
+.mid-form label{
+    display: block;
+    float: left;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 17px;
+}
+input[type="text"],textarea{ /*SELECTOR POR ETIQUETA [ATRIBUTO="VALOR"] pongo , y aplico lo mismo heredo a textarea*/
     width: 100%;
-    height: 30px;
+    min-height: 30px;
     border: 1px solid #ccc;
     padding: 3px;
     margin-bottom: 5px;
     transition: 300ms all;
 }
-input[type="text"]:focus{ /*FOCUS es para cuando HAGO CLICK*/
+input[type="text"]:focus, textarea:focus{ /*FOCUS es para cuando HAGO CLICK*/
 box-shadow: 0px 0px 5px #eee inset;/*box- shadow (es difuminado) INSET es para que lo meta por dentro del input*/
 }
+textarea{
+    width: 100%;
+    height: 150px;
+    max-width: 100%;
+    min-width: 100%;
+    max-height: 300px;
+    min-height: 150px;
+}
+
+.radio-button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    float: left;
+}
+
 #footer{
     background-color: #f7f7f7;
     width: 100%;
