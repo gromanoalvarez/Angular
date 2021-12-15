@@ -6,6 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maquetación para el Master en frameworks JavaScript</title>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <script type="text/javascript"> /* Función de clonar en JS*/
+
+        window.addEventListener("load", function(){ /* Evento que invoca la función cuando se cargue window*/
+
+            var template = document.getElementById("article-template"); /*Selecciono el article de la imagen*/
+            var articles = document.getElementById("articles");
+
+            for (var i = 1; i < 4; i++){ 
+                var clonado = template.cloneNode(true); /*cloneNode(true) para clonar toda la etiqueta*/
+                var h2 = clonado.getElementsByTagName("h2")[0]; /*Selección de etiqueta titulo h2, elijo el elemento 0*/
+                h2.innerHTML = h2.textContent + ' ' + i;  /*Le paso el valor actual de la etiqueta h2 y le concateno la posición*/
+                articles.appendChild(clonado); /*Lo inserto en el HTML con append, Child es para que no borre lo anterior*/
+            }
+        });
+
+    </script>
+
 </head>
 <body>
     <header id="header">
@@ -17,6 +35,7 @@
                     <strong>Curso</strong>React
                 </span>
             </div>
+
 <!--MENU-->
             <nav id="menu">
                 <ul>
@@ -50,18 +69,20 @@
     <div class="center">
         <section id="content">
             <h2>Últimos artículos</h2>
-
             <!--Listado artículos-->
-            <article class="article-item">
-                <div class="image-wrap">
-                    <img src="assets/images/paisaje.jpg" alt="Pasaje">
-                </div>
-                <h2>Articulo de prueba</h2>
-                <span class="date">
-                    Hace 5 minutos
-                </span>
-                <a href="#">Leer más</a>
-            </article>
+            <div id="articles">
+                <article class="article-item" id="article-template">
+                    <div class="image-wrap">
+                        <img src="https://i.pinimg.com/564x/db/86/85/db8685f39c83d34c6090b8839e0bd864.jpg" alt="Pasaje">
+                    </div>
+                    <h2>Artículo de prueba</h2>
+                    <span class="date">
+                        Hace 5 minutos
+                    </span>
+                    <a href="#">Leer más</a>
+                </article>
+                <!--AÑADIR ARTÍCULOS VIA JS-->
+            </div>
         </section>
         <aside id="sidebar">
             <div id="nav-blog" class="sidebar-item">
