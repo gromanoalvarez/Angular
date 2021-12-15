@@ -16,6 +16,7 @@
 
             for (var i = 1; i < 4; i++){ 
                 var clonado = template.cloneNode(true); /*cloneNode(true) para clonar toda la etiqueta*/
+                clonado.removeAttribute("id"); /*removeAttribute("id") Remueve el atributo id porque cada id debe ser unico*/
                 var h2 = clonado.getElementsByTagName("h2")[0]; /*Selección de etiqueta titulo h2, elijo el elemento 0*/
                 h2.innerHTML = h2.textContent + ' ' + i;  /*Le paso el valor actual de la etiqueta h2 y le concateno la posición*/
                 articles.appendChild(clonado); /*Lo inserto en el HTML con append, Child es para que no borre lo anterior*/
