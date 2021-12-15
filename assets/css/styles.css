@@ -214,10 +214,9 @@ box-shadow: 0px 0px 5px #eee inset;/*box- shadow (es difuminado) INSET es para q
     overflow: hidden; /* oculta todo lo que sobresalga del div */
     float: left;
     margin-right: 15px;
-    border: 1 px solid #ccc;
+    border: 1px solid #ccc;
 }
 .article-item .image-wrap img{
-    height: 100%;
     text-align: center;
 }
 .article-item h2{
@@ -246,4 +245,18 @@ box-shadow: 0px 0px 5px #eee inset;/*box- shadow (es difuminado) INSET es para q
     font-size: 38px;
     border-bottom: 1px solid #eee;
     padding: 10px;
+}
+.article-detail .image-wrap{
+    float: none; /**/
+    width: 100%;
+    height: 300px;
+}
+.article-detail .image-wrap img{
+    width: 100%; /*En este caso priorizo que ocupe todo le ancho*/
+    height: auto; /*Con uno de los 2 parametros en auto se queda a proporción la imagen*/
+}
+.article-detail .subheader{
+    margin-top: 15px;
+    margin-bottom: 0px;
+    border: none;
 }

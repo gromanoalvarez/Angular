@@ -6,32 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maquetación para el Master en frameworks JavaScript</title>
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-
-    <script type="text/javascript"> /* Función de clonar en JS*/
-
-        window.addEventListener("load", function(){ /* Evento que invoca la función cuando se cargue window*/
-
-            var template = document.getElementById("article-template"); /*Selecciono el article de la imagen*/
-            var articles = document.getElementById("articles");
-
-            for (var i = 1; i < 4; i++){ 
-                var clonado = template.cloneNode(true); /*cloneNode(true) para clonar toda la etiqueta*/
-                clonado.removeAttribute("id"); /*removeAttribute("id") Remueve el atributo id porque cada id debe ser unico*/
-                var h2 = clonado.getElementsByTagName("h2")[0]; /*Selección de etiqueta titulo h2, elijo el elemento 0*/
-                h2.innerHTML = h2.textContent + ' ' + i;  /*Le paso el valor actual de la etiqueta h2 y le concateno la posición*/
-                articles.appendChild(clonado); /*Lo inserto en el HTML con append, Child es para que no borre lo anterior*/
-            }
-        });
-
-    </script>
-
 </head>
 <body>
     <header id="header">
         <div class="center">
 <!--LOGO-->
             <div id="logo">
-                <img src="assets/images/1200px-React.svg.png" alt="Logotipo" class="app-logo">
+                <a href="index.html">
+                    <img src="assets/images/1200px-React.svg.png" alt="Logotipo" class="app-logo">
+                </a>
                 <span id="brand">
                     <strong>Curso</strong>React
                 </span>
@@ -63,29 +46,29 @@
         </div>
     </header>
 
-    <div id="slider" class="slider-big">
-        <h1>Stairway to heaven</h1>
-        <a href="blog.html" class="btn-white">Ir al Blog</a>
-    </div>
     <div class="center">
         <section id="content">
-            <h2 class="subheader">Últimos artículos</h2>
-            <!--Listado artículos-->
-            <div id="articles">
-                <article class="article-item" id="article-template">
+                <article class="article-item article-detail">
                     <div class="image-wrap">
                         <img src="https://i.pinimg.com/564x/db/86/85/db8685f39c83d34c6090b8839e0bd864.jpg" alt="Pasaje">
                     </div>
-                    <h2>Artículo de prueba</h2>
-                    <span class="date">
+
+                    <h1 class="subheader">Artículo de prueba</h1>
+                    <span class="date"> <!--FECHA-->
                         Hace 5 minutos
                     </span>
-                    <a href="article.html">Leer más</a>
+
+                    <p>
+                        Un Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores non ex ab eligendi doloremque odit earum aperiam iusto, ea reprehenderit quia quos consequuntur perspiciatis architecto eum accusantium excepturi assumenda eius.
+                    </p>
+                    <p>
+                        Dos Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores non ex ab eligendi doloremque odit earum aperiam iusto, ea reprehenderit quia quos consequuntur perspiciatis architecto eum accusantium excepturi assumenda eius.
+                    </p>
+                    <p>
+                        Tres Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores non ex ab eligendi doloremque odit earum aperiam iusto, ea reprehenderit quia quos consequuntur perspiciatis architecto eum accusantium excepturi assumenda eius.
+                    </p>
                     <div class="clearfix"></div> <!--LIMPIAR-->
                 </article>
-
-                <!--AÑADIR ARTÍCULOS VIA JS-->
-            </div>
         </section>
         <aside id="sidebar">
             <div id="nav-blog" class="sidebar-item">
