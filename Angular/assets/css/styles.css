@@ -12,7 +12,7 @@ body{
     height: 120px;
     width: 100%;
     border-bottom: 1px solid #ccc;
-    border-top: 5px solid #61dafb;
+    border-top: 5px solid #f13e3e;
     background: white;
 }
 #logo{
@@ -51,7 +51,7 @@ body{
     float: left;
 }
 .center{
-    width: 75%;
+    width: 80%;
     margin: 0px auto; /*centra el contenido*/
 }
 #menu{
@@ -78,7 +78,7 @@ body{
     transition: 300ms all; /*transicion al hover */
 }
 #menu a:hover {
-    color: #3cb2d3;
+    color: #f13e3e;
 }
 .clearfix{ 
     clear: both;/*Bloquea los floats que no suban al header*/
@@ -88,16 +88,16 @@ body{
     width: 100%;
     height: 350px;
     /* line-height: 320px; */
-    color:white;
+    color:black;
     text-shadow: 0px 0px 5px #444; /*sombreado de texto*/
-    background: rgba(97,218,251,1);
-background: -moz-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(97,218,251,1)), color-stop(100%, rgba(60,178,211,1)));
-background: -webkit-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-background: -o-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-background: -ms-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-background: radial-gradient(ellipse at center, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61dafb', endColorstr='#3cb2d3', GradientType=1 );
+    background: rgb(181, 33, 7);
+    background: -moz-radial-gradient(center, ellipse cover, rgb(181, 33, 7) 0%, rgb(181, 33, 7) 0%, rgb(181, 33, 7) 66%, rgb(181, 33, 7) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(248,80,50,1)), color-stop(0%, rgba(241,111,92,1)), color-stop(66%, rgba(230,31,5,1)), color-stop(100%, rgba(231,56,39,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(230,31,5,1) 66%, rgba(231,56,39,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(230,31,5,1) 66%, rgba(231,56,39,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(230,31,5,1) 66%, rgba(231,56,39,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(230,31,5,1) 66%, rgba(231,56,39,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=1 );
 }
 
 #slider h1{
@@ -125,7 +125,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61dafb', end
     transition: 300ms all; /*tiempo de transición con el hover*/
 }
 .btn-white:hover{
-    background: #444;
+    background: #000;
     color: white;
 }
 #slider.slider-small{
@@ -307,13 +307,33 @@ textarea{
         width: auto;
     }
 }
+@media(max-width:1148px){
+    #logo{
+        width: 35%;
+    }
+    #menu {
+        width: 65%;
+    }
+}
+@media (max-width: 996px){/*Desde 0 hasta 996px*/
+    #logo{
+        width: 39%;
+    }
+    #menu {
+        width: 61%;
+    }
+}
 
-@media (max-width: 797px){/*Desde 0 hasta 797px*/
+@media (max-width: 884px){/*Desde 0 hasta 797px*/
     #logo{
         float: none;
-        width: 240px;
+        width: auto;
         margin: 0px auto;
         margin-top: 20px;
+        float: left;
+    }
+    #brand{
+        width: 60%;
     }
     #menu ul, #menu ul{        
         clear: both; /*Limpieza de flotados*/
@@ -323,6 +343,10 @@ textarea{
         padding: 0px;
         line-height: 43px;
     }
+    #menu {
+        width: 100%;
+    }
+  
     #content{
         float: none;
         width: 100%;
@@ -341,13 +365,29 @@ textarea{
         width: 70%;
     }
 } 
-@media (max-width: 497px){/*Desde 0 hasta 497px*/
+@media (max-width: 800){/*Desde 0 hasta 497px*/
+    .center{
+      width: 100%;
+    }
+    img.app-logo{
+        margin: 0px;
+        width: 15%;
+        display: inline;
+    }
+    #logo span{
+        width: 80%;
+        display: inline;
+    }
+    #logo img{
+        margin: -10px;
+        display: inline-block;
+    }
     #header{
         min-height: 130px;
         overflow: hidden;
     }
-    #menu, #menu ul{
-        line-height: 50px;
+    #menu{
+        width: 100%;
     }
     #menu ul li{
         margin-left: 7px;
