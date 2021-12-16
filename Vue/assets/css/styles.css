@@ -12,7 +12,7 @@ body{
     height: 120px;
     width: 100%;
     border-bottom: 1px solid #ccc;
-    border-top: 5px solid #61dafb;
+    border-top: 5px solid #09a330;
     background: white;
 }
 #logo{
@@ -25,17 +25,17 @@ body{
 #logo img{
     display: block; /*asi se puede meter margin y float*/
     float: left;
-    height: 60px;
-    margin-top: -9px;
-    margin-right: 5px;
-    animation: girar infinite 30s linear; /* "girar" es el nombre que le pongo a la animacion, infinito es que lo haga por tiempo indefinido, linear que sea continuo*/
+    height: 40px;
+    margin-top: 0px;
+    margin-right: 3px;
+    animation: girar infinite 3s linear; /* "girar" es el nombre que le pongo a la animacion, infinito es que lo haga por tiempo indefinido, linear que sea continuo*/
 }
 @keyframes girar{ /* significa que creamos la animacion girar */
     from { /*desde que empieza o podria ser 10% x ej */
-        transform: rotate(0deg);
+        transform: scale(0.55, 0.55);
     }
     to { /* hasta que termina o podria poner 100% x ej */
-        transform: rotate(360deg);
+        transform: rotate(0.7, 0.7);
     }
 }
 
@@ -72,7 +72,7 @@ body{
     transition: 300ms all; /*transicion al hover */
 }
 #menu a:hover {
-    color: #3cb2d3;
+    color: #09a330;
 }
 .clearfix{ 
     clear: both;/*Bloquea los floats que no suban al header*/
@@ -84,14 +84,14 @@ body{
     /* line-height: 320px; */
     color:white;
     text-shadow: 0px 0px 5px #444; /*sombreado de texto*/
-    background: rgba(97,218,251,1);
-background: -moz-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(97,218,251,1)), color-stop(100%, rgba(60,178,211,1)));
-background: -webkit-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-background: -o-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-background: -ms-radial-gradient(center, ellipse cover, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-background: radial-gradient(ellipse at center, rgba(97,218,251,1) 0%, rgba(60,178,211,1) 100%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#61dafb', endColorstr='#3cb2d3', GradientType=1 );
+    background: rgba(119,194,81,1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(119,194,81,1) 0%, rgba(8,145,42,1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(119,194,81,1)), color-stop(100%, rgba(8,145,42,1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(119,194,81,1) 0%, rgba(8,145,42,1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(119,194,81,1) 0%, rgba(8,145,42,1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(119,194,81,1) 0%, rgba(8,145,42,1) 100%);
+    background: radial-gradient(ellipse at center, rgba(119,194,81,1) 0%, rgba(8,145,42,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#77c251', endColorstr='#08912a', GradientType=1 );
 }
 
 #slider h1{
@@ -309,7 +309,7 @@ textarea{
         margin: 0px auto;
         margin-top: 20px;
     }
-    #menu ul, #menu ul{        
+    #menu, #menu ul{        
         clear: both; /*Limpieza de flotados*/
         float: none;/*No flote el contenido lo deje natural*/
         width: 100%;
@@ -342,6 +342,8 @@ textarea{
     }
     #menu, #menu ul{
         line-height: 50px;
+        width: 100%;
+ 
     }
     #menu ul li{
         margin-left: 7px;
