@@ -309,7 +309,8 @@ textarea{
         margin: 0px auto;
         margin-top: 20px;
     }
-    #menu ul, #menu ul{        
+    
+    #menu, #menu ul{        
         clear: both; /*Limpieza de flotados*/
         float: none;/*No flote el contenido lo deje natural*/
         width: 100%;
@@ -342,6 +343,8 @@ textarea{
     }
     #menu, #menu ul{
         line-height: 50px;
+        width: 100%;
+        text-align: center;
     }
     #menu ul li{
         margin-left: 7px;
