@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Api RESTful del Master en Frameworks para JS ",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gromanoalvarez/Frameworks.git"
+  },
+  "author": "German Romano Alvarez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gromanoalvarez/Frameworks/issues"
+  },
+  "homepage": "https://github.com/gromanoalvarez/Frameworks#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "mongoose": "^6.1.2",
+    "multiparty": "^4.2.2",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
