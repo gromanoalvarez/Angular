@@ -1,5 +1,5 @@
 
-/**Para comenzar a sincronizar con nodemon ingresar
+/**Para comenzar a SINCRONIZAR CON NODEMON ingresar:
  * el siguiente comando en el cmd
  *          npm run devStart
  * 
@@ -19,13 +19,14 @@ var mongoose = require("mongoose");
 var app = require('./app'); //Módulo, archivo creado manualmente
 var port = 3900; //Puerto que yo quiero utilizar
 
-mongoose.connect("mongodb://localhost/testdb", () => {
-    console.log("Conectado a la base de datos a través de mongoose");
 
 /** CREAR SERVIDOR WEB que nos permite procesar PETICIONES y RESPUESTAS http creado con EXPRESS */
+mongoose.connect("mongodb://localhost/testdb", () => {
+
+    console.log("Conectado a la base de datos a través de mongoose");
 
     app.listen(port, () => {
-        console.log('Servidor corriendo en http://localhost:'+ port);
+        console.log('Servidor APP corriendo en http://localhost:'+ port);
     });
  
     /** Si  ahora pongo http://localhost: en el navegador aparece:

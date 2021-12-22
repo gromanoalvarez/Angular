@@ -14,21 +14,28 @@
 'use strict'
 
 var mongoose = require('mongoose') //Carga el módulo mongoose
-var Schema = mongoose.Schema //Utilizar el objeto de este tipo
+var Schema = mongoose.Schema //Utilizar el objeto Schema de este tipo
 
+//Le paso las propiedades del objeto json
+// en mongoose se define el "tipo de dato" en este caso String
+//contenido del aríiculo
+//guarda por defecto la fecha actual dentro del artículo
+//guardo la ruta de mi imagen 
 var ArticleSchema = Schema( 
-    {//Le paso las propiedades del objeto json
-        title: String, // en mongoose se define el "tipo de dato" en este caso String
-        contents: String, //contenido del aríiculo
-        date: {type: Date, default: Date.now}, //guarda por defecto la fecha actual dentro del artículo
-        image: String //guardo la ruta de mi imagen 
+    {
+        title: String, 
+        contents: String, 
+        date: {type: Date, default: Date.now}, 
+        image: String 
     }
 )
 //EXPORTARLO COMO MODULO para poder IMPORTARLO EN EL BACKEND 
 // y crear objetos nuevos 
 //o utilizar simplemente el modelo para 
 //CONECTARME A BASE DE DATOS utilizando métodos Find, save  
+
 module.exports = mongoose.model('Article', ArticleSchema)
+
 //el MODELO va a tener el nombre 'Article' y ArticleSchema es el ESQUEMA
 //Cada documento que guarde en la base de datos va a ser un 'Article' con ese esquema
 
