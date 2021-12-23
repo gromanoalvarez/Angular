@@ -72,10 +72,10 @@ var controller = {
         var last = req.params.last //last es un parametro opcional que puedo ingressar por la route article
         console.log(last)
         if(last || last != undefined){
-            query.limit(5) //Establece un limite de 5 datos a recibir
+            query.limit(5) //Establece un limite "MUESTRA SOLO 5 ARTICULOS"
         }
 
-        //MUESTRA TODOS LOS ARTICLES de la base de datos y SORT -_id lo ORDENA desde el mas nuevo al mas viejo.
+        //"MUESTRA TODOS" LOS ARTICLES de la base de datos y SORT -_id lo ORDENA desde el mas nuevo al mas viejo.
         query.sort('-_id').exec((err, articles) => {
             if(err){
                 return res.status(500).send({ //RESPONDE CON
@@ -92,6 +92,39 @@ var controller = {
             return res.status(200).send({ //RESPONDE CON
                 status: 'success',
                 articles
+            })
+        })
+    },
+    getArticle: (req, res) => { //MUESTRA "UN SOLO" ARTICULO
+        //Recoger el id de la url que ingreso en el cliente rest postman
+        var articleId = req.params.id
+
+        //Comprobar que haya entrado algun valor
+        if( !articleId || articleId == null){
+            return res.status(404).send({ //RESPONDE CON
+                status: 'error',
+                message: 'No se ha pasado un articulo por params'
+            })
+        }
+
+        //Buscar el artículo dentro de mi base de datos por su Id
+        Article.findById(articleId, (err, article) => {
+            if(err){
+                return res.status(500).send({ //RESPONDE CON
+                    status: 'error',
+                    message: 'Error al devolver los datos!!!'
+                })
+            }
+            if(!articleId){
+                return res.status(404).send({ //RESPONDE CON
+                    status: 'error',
+                    message: 'No existe un artículo con este id en la base de datos'
+                })
+            }
+            //Si todo esta bien, Devolver en json el article.
+            return res.status(200).send({ //RESPONDE CON
+                status: 'success',
+                article
             })
         })
     }

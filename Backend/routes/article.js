@@ -13,6 +13,7 @@ router.get('/test-de-controlador', ArticleController.test)
 
 //Rutas útiles para artículos
 router.post('/save', ArticleController.save)
-router.get('/articles/:last?', ArticleController.getArticles)//:last? hace que sea un parametro opcional
+router.get('/articles/:last?', ArticleController.getArticles)//:last "?" hace que sea un parametro opcional
+router.get('/article/:id', ArticleController.getArticle) //sin el ? la hace una ruta obligatoria
 
 module.exports = router; //EXPORTAR RUTA PARA USARLO Y LA CARGO EN EL APP.JS
