@@ -24,7 +24,7 @@ var Schema = mongoose.Schema //Utilizar el objeto Schema de este tipo
 var ArticleSchema = Schema( 
     {
         title: String, 
-        contents: String, 
+        content: String, 
         date: {type: Date, default: Date.now}, 
         image: String 
     }

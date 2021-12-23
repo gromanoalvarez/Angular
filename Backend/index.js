@@ -21,7 +21,7 @@ var port = 3900; //Puerto que yo quiero utilizar
 
 
 /** CREAR SERVIDOR WEB que nos permite procesar PETICIONES y RESPUESTAS http creado con EXPRESS */
-mongoose.connect("mongodb://localhost/testdb", () => {
+mongoose.connect("mongodb://localhost/api_rest_blog", () => {
 
     console.log("Conectado a la base de datos a través de mongoose");
 

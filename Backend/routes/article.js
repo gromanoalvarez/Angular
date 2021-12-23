@@ -13,5 +13,6 @@ router.get('/test-de-controlador', ArticleController.test)
 
 //Rutas útiles para artículos
 router.post('/save', ArticleController.save)
+router.get('/articles', ArticleController.getArticles)
 
 module.exports = router; //EXPORTAR RUTA PARA USARLO Y LA CARGO EN EL APP.JS
