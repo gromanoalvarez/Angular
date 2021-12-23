@@ -109,13 +109,7 @@ var controller = {
 
         //Buscar el artículo dentro de mi base de datos por su Id
         Article.findById(articleId, (err, article) => {
-            if(err){
-                return res.status(500).send({ //RESPONDE CON
-                    status: 'error',
-                    message: 'Error al devolver los datos!!!'
-                })
-            }
-            if(!articleId){
+            if(err || !articleId){
                 return res.status(404).send({ //RESPONDE CON
                     status: 'error',
                     message: 'No existe un artículo con este id en la base de datos'
@@ -127,6 +121,49 @@ var controller = {
                 article
             })
         })
+    },
+    update: (req, res) => { //ACTUALIZAR: ACEPTA LOS DATOS ENTRANTES Y MODIFICA EL ARTICULO CON MISMO ID PARA ACTUALIZARLO
+        //Recoger el id del articulo por la url(params)
+        var articleId = req.params.id
+        //recoger los datos que llegan por put del body
+        var params = req.body
+        //Validar los datos con try y catch para evitar posibles errores
+        try{
+            var validate_title = !validator.isEmpty(params.title)
+            var validate_content = !validator.isEmpty(params.content)
+        }catch(err){
+            return res.status(200).send({ //RESPONDE CON
+                status: 'error',
+                message: 'Faltan datos por enviar!!!'
+            })
+        }
+
+        if(validate_title && validate_content){
+        //Hacer la consulta con FindAndUpdate (BUSCA Y ACTUALIZA)
+            Article.findByIdAndUpdate({_id: articleId}, params, {new: true}, (err, articleUpdated) => {
+                if(err){
+                    return res.status(500).send({ //RESPONDE CON
+                        status: 'error',
+                        message: 'Error al actualizar'
+                    }) 
+                }
+                if(!articleUpdated){
+                    return res.status(404).send({ //RESPONDE CON
+                        status: 'error',
+                        message: 'No existe el artículo'
+                    }) 
+                }
+                return res.status(200).send({ //RESPONDE CON
+                    status: 'succes',
+                    article: articleUpdated
+                }) 
+            })
+        }else{
+            return res.status(200).send({ //RESPONDE CON
+                status: 'error',
+                message: 'La validación no es correcta'
+            })
+        }
     }
 } //end controller
 
