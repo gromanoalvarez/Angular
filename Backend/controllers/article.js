@@ -68,9 +68,31 @@ var controller = {
         }
     },
     getArticles: (req, res) => {
-        return res.status(200).send({ //RESPONDE CON
-            status: 'error',
-            message: 'Los datos no son válidos!!!'
+        var query = Article.find({})
+        var last = req.params.last //last es un parametro opcional que puedo ingressar por la route article
+        console.log(last)
+        if(last || last != undefined){
+            query.limit(5) //Establece un limite de 5 datos a recibir
+        }
+
+        //MUESTRA TODOS LOS ARTICLES de la base de datos y SORT -_id lo ORDENA desde el mas nuevo al mas viejo.
+        query.sort('-_id').exec((err, articles) => {
+            if(err){
+                return res.status(500).send({ //RESPONDE CON
+                    status: 'error',
+                    message: 'Error al devolver los articulos!!!'
+                })
+            }
+            if(!articles){
+                return res.status(404).send({ //RESPONDE CON
+                    status: 'error',
+                    message: 'No hay articulos para mostrar!!!'
+                })
+            }
+            return res.status(200).send({ //RESPONDE CON
+                status: 'success',
+                articles
+            })
         })
     }
 } //end controller

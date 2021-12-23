@@ -13,6 +13,6 @@ router.get('/test-de-controlador', ArticleController.test)
 
 //Rutas útiles para artículos
 router.post('/save', ArticleController.save)
-router.get('/articles', ArticleController.getArticles)
+router.get('/articles/:last?', ArticleController.getArticles)//:last? hace que sea un parametro opcional
 
 module.exports = router; //EXPORTAR RUTA PARA USARLO Y LA CARGO EN EL APP.JS
