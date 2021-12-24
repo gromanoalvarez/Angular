@@ -3,7 +3,8 @@
 
 'use strict'
 
-var validator = require('validator')
+var validator = require('validator');
+const article = require('../models/article');
 var Article = require('../models/article'); //importar el modelo que cree previamente que media con la base de datos
 
 //creo el OBJETO LITERAL JSON
@@ -164,6 +165,44 @@ var controller = {
                 message: 'La validación no es correcta'
             })
         }
+    },
+    delete: (req, res) => {
+        //Recoger el id de la url
+        var articleId = req.params.id
+        //Find and Delete
+        Article.findByIdAndDelete({_id: articleId}, (err, articleRemoved) => {
+            if(err){
+                return res.status(500).send({ //RESPONDE CON
+                    status: 'error',
+                    message: 'Error al Borrar'
+                }) 
+            }
+            if(!articleRemoved){
+                return res.status(404).send({ //RESPONDE CON
+                    status: 'error',
+                    message: 'No se ha borrado el artículo, posiblemente no exista'
+                }) 
+            }
+            return res.status(200).send({
+                status: 'success',
+                article: articleRemoved
+            })
+        })
+    },
+    upload: (req, res) => { //SUBIDA DE ARCHIVOS
+        //Configurar el módulo "connect multiparty" se hace en el router/article.js instalado previamente multiparty (hecho)
+        //Recoger el fichero de la petición
+        //var file_name = 'Imagen no subida...'
+        
+        //Conseguir nombre y la extensión del archivo
+        
+        //Comprobar la extensión, solo imágenes, si no es válida borrar el fichero
+        //Si todo es válido
+        //Buscar el artículo, asignarle el nombre de la imagen y actualizarlo
+
+        return res.status(404).send({
+            message: 'daleeeee'
+        })
     }
 } //end controller
 
