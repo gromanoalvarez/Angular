@@ -189,19 +189,12 @@ var controller = {
         })
     },
     upload: (req, res) => { //SUBIDA DE ARCHIVOS
-        //Configurar el módulo "connect multiparty" se hace en el router/article.js instalado previamente multiparty (hecho)
-        //Recoger el fichero de la petición
-        //var file_name = 'Imagen no subida...'
+        //Configurar el módulo "connect multiparty" 
+        //hecho en el router/article.js instalado previamente multiparty
         
-        //Conseguir nombre y la extensión del archivo
-        
-        //Comprobar la extensión, solo imágenes, si no es válida borrar el fichero
-        //Si todo es válido
-        //Buscar el artículo, asignarle el nombre de la imagen y actualizarlo
 
-        return res.status(200).send({
-            message: 'daleeeee'
-        })
+
+
     }
 } //end controller
 
