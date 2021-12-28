@@ -6,9 +6,17 @@ var ArticleController = require('../controllers/article')
 var router = express.Router() //LLAMO AL ROUTER de express que trae dentro
 
 var image_upload_dir = "./upload/articles"
-var multiparty = require('multiparty');  //CARGAR modulo MULTIPARTY
+var multiparty = require('multiparty');  //CARGAR módulo MULTIPARTY
 
-var middleware_upload = new multiparty.Form( {uploadDir: image_upload_dir});
+var middleware_upload = (req, res) => {
+    let form = new multiparty.Form({uploadDir: image_upload_dir})
+
+    form.parse(req, function(err, fields, files){
+        if(err) return res.send({error: err.message})
+        console.log(`fields = ${JSON.stringify(fields, null, 2)}`)
+        console.log(`files = ${JSON.stringify(files, null, 2)}`)
+    })
+} 
 //SE EJECUTA ANTES QUE EL METODO DEL CONTROLADOR
 
 //Creo mi rutas de pruebas por post (OCULTA)
@@ -28,8 +36,5 @@ router.get('/article/:id', ArticleController.getArticle) //sin el ? la hace una 
 router.put('/article/:id', ArticleController.update) 
 router.delete('/article/:id', ArticleController.delete) 
 router.post('/upload-image/:id', middleware_upload, ArticleController.upload) // guarda imagenes para un articulo en la base de datos con middleware para automaticamente aceptar los archivos
-
-
-
 
 module.exports = router; //EXPORTAR RUTA PARA USARLO Y LA CARGO EN EL APP.JS

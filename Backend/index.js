@@ -12,6 +12,7 @@
 [nodemon] watching extensions: js,mjs,json
 [nodemon] starting `node index.js`
  */
+'use strict'
 console.log("Nodemon activado, ahora se ve en cmd los cambios ni bien guardo aca");
 
 /**Ahora vamos a conectar Node con la base de datos mongo db a través de mongoose */

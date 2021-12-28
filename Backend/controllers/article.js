@@ -4,7 +4,6 @@
 'use strict'
 
 var validator = require('validator');
-const article = require('../models/article');
 var Article = require('../models/article'); //importar el modelo que cree previamente que media con la base de datos
 
 //creo el OBJETO LITERAL JSON
@@ -200,7 +199,7 @@ var controller = {
         //Si todo es válido
         //Buscar el artículo, asignarle el nombre de la imagen y actualizarlo
 
-        return res.status(404).send({
+        return res.status(200).send({
             message: 'daleeeee'
         })
     }
