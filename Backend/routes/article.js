@@ -6,20 +6,20 @@ var ArticleController = require('../controllers/article');
 var router = express.Router();
 
 var multipart = require('connect-multiparty');
-var md_upload = multipart({ uploadDir: './upload/articles'});
+var md_upload = multipart({ uploadDir: './upload/articles'}); //middleware
 
 // Rutas de prueba
 router.post('/datos-curso', ArticleController.datosCurso);
 router.get('/test-de-controlador', ArticleController.test);
 
 // Rutas útiles
-router.post('/save', ArticleController.save);
-router.get('/articles/:last?', ArticleController.getArticles);
+router.post('/save', ArticleController.save); // POST para ENVIAR al BACKEND o BD
+router.get('/articles/:last?', ArticleController.getArticles);// GET para SACAR info de la API, ? SIGNIFICA NO OBLIGATORIO
 router.get('/article/:id', ArticleController.getArticle);
-router.put('/article/:id', ArticleController.update);
-router.delete('/article/:id', ArticleController.delete);
-router.post('/upload-image/:id?', md_upload, ArticleController.upload);
-router.get('/get-image/:image', ArticleController.getImage);
-router.get('/search/:search', ArticleController.search);
+router.put('/article/:id', ArticleController.update); //PUT para ACTUALIZAR
+router.delete('/article/:id', ArticleController.delete);// DELETE para BORRAR
+router.post('/upload-image/:id?', md_upload, ArticleController.upload); //utilizo middleware multipart para form-data
+router.get('/get-image/:image', ArticleController.getImage);// pido el name de la imagen por url
+router.get('/search/:search', ArticleController.search); //BUSCADOR
 
 module.exports = router;

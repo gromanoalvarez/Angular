@@ -4,8 +4,8 @@
 'use strict'
 
 var validator = require('validator');
-var fs = require('fs');
-var path = require('path');
+var fs = require('fs'); //file system, permite eliminar files del fichero  YA LO INCLUYE NODEJS
+var path = require('path'); // modulo para sacar el path o ruta de un archivo del servidor
 
 var Article = require('../models/article'); //importar el modelo que cree previamente que media con la base de datos
 
@@ -196,12 +196,11 @@ var controller = {
             })
         })
     },
-    upload: (req, res) => {
+    upload: (req, res) => {//CARGA IMAGENES DEL FORM-DATA
         // Configurar el modulo connect multiparty router/article.js (hecho)
 
         // Recoger el fichero de la petición
         var file_name = 'Imagen no subida...';
-
         if(!req.files){
             return res.status(404).send({
                 status: 'error',
@@ -225,30 +224,25 @@ var controller = {
 
         // Comprobar la extension, solo imagenes, si es valida borrar el fichero
         if(file_ext != 'png' && file_ext != 'jpg' && file_ext != 'jpeg' && file_ext != 'gif'){
-            
-            // borrar el archivo subido
-            fs.unlink(file_path, (err) => {
-                return res.status(200).send({
+            // borrar el archivo subido CON FILE SYSTEM
+            fs.unlink(file_path, (err) => { //BORRA del disco duro ese archivo
+                return res.status(404).send({
                     status: 'error',
-                    message: 'La extensión de la imagen no es válida !!!'
+                    message: 'La extensión de la imagen no es válida, sera borrada !!!'
                 });
             });
-        
         }else{
              // Si todo es valido, sacando id de la url
              var articleId = req.params.id;
-
              if(articleId){
-                // Buscar el articulo, asignarle el nombre de la imagen y actualizarlo
+                // BUSCA Y ACTUALIZA el articulo, asignarle el nombre de la imagen 
                 Article.findOneAndUpdate({_id: articleId}, {image: file_name}, {new:true}, (err, articleUpdated) => {
-
                     if(err || !articleUpdated){
-                        return res.status(200).send({
+                        return res.status(404).send({
                             status: 'error',
-                            message: 'Error al guardar la imagen de articulo !!!'
+                            message: 'Error al ACTUALIZAR la imagen de articulo !!!'
                         });
                     }
-
                     return res.status(200).send({
                         status: 'success',
                         article: articleUpdated
@@ -257,20 +251,18 @@ var controller = {
              }else{
                 return res.status(200).send({
                     status: 'success',
+                    message: 'articleId false',
                     image: file_name
                 });
              }
-            
         }   
     }, // end upload file
-
-    getImage: (req, res) => {
-        var file = req.params.image;
-        var path_file = './upload/articles/'+file;
-
+    getImage: (req, res) => { //Permite SACAR LA IMAGEN DEL BACKEND para usarla en frontend
+        var file = req.params.image; //obtengo el nombre image que puse por url
+        var path_file = './upload/articles/'+file; //le agrego en la ruta las carpetas donde esta para completar el path 
         fs.exists(path_file, (exists) => {
             if(exists){
-                return res.sendFile(path.resolve(path_file));
+                return res.sendFile(path.resolve(path_file)); //devuelve el archivo en crudo
             }else{
                 return res.status(404).send({
                     status: 'error',
@@ -279,38 +271,33 @@ var controller = {
             }
         });
     },
-
-    search: (req, res) => {
-        // Sacar el string a buscar
+    search: (req, res) => { //BUSCADOR
+        // Sacar el string a buscar que puse en la url
         var searchString = req.params.search;
 
-        // Find or
+        // Find or para hacer varias condiciones
         Article.find({ "$or": [
-            { "title": { "$regex": searchString, "$options": "i"}},
-            { "content": { "$regex": searchString, "$options": "i"}}
+            { "title": { "$regex": searchString, "$options": "i"}}, //si el searchString esta "i"ncluido dentro del titulo
+            { "content": { "$regex": searchString, "$options": "i"}} //o esta "i"ncluido dentro del contenido
         ]})
-        .sort([['date', 'descending']])
-        .exec((err, articles) => {
-
+        .sort([['date', 'descending']]) //ordena descendiente por fecha
+        .exec((err, articles) => { //para sacar de la base de datos
             if(err){
                 return res.status(500).send({
                     status: 'error',
                     message: 'Error en la petición !!!'
                 });
             }
-            
             if(!articles || articles.length <= 0){
                 return res.status(404).send({
                     status: 'error',
-                    message: 'No hay articulos que coincidan con tu busqueda !!!'
+                    message: `No hay articulos que coincidan con la búsqueda de: ${searchString}  !!!`
                 });
             }
-
             return res.status(200).send({
                 status: 'success',
                 articles
             });
-
         });
     }
 } //end controller

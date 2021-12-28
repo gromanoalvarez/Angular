@@ -14,13 +14,13 @@ var article_routes = require('./routes/article')
 app.use(bodyParser.urlencoded({extended:false})); //Para utilizar el body parser
 app.use(bodyParser.json()); //Convierte cualquier petición que llegue a  json
 
-//7. CORS
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+//7. CORS, permite  el acceso cruzado entre dominio, PERMITE llamadas de http o peticiones AJAX DESDE EL FRONTEND
+app.use((req, res, next) => { //MIDDLEWARE
+    res.header('Access-Control-Allow-Origin', '*'); // * significa cualquier cliente
     res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-    next();
+    next(); //Permite pasar del middleware
 });
 
 //6.CON USE PUEDO Añadir prefijos /api a rutas y CARGAR ROUTES/ARTICLE.JS
