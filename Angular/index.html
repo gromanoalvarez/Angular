@@ -24,6 +24,53 @@
             }
         });
 
+/*              Angular (de Google)
+
+Permite hacer APLICACIONES WEB SPA (single page applications), hace pagina reactiva, es decir no recarga, va por Js.
+La interacción con el Backend va por AJAX (peticiones http asincrona).
+Es más rápida.
+
+COMPONENTE: controla un trozo de pantalla, controla y gestiona lo que se ve. mediador entre la "vista" a traves de la "plantilla" y la logica
+
+PLANTILLA: son la "vista" de la aplicacion, de los componentes.  son ficheros HTML con sitaxis especial de Angular, trabajan con DATABLINDING y las DIRECTIVAS.
+
+DECORADORES: patron de diseño, configura los metadatos/atributos de las clases y componentes.
+
+METADATOS: relaciones y caracteristicas de la clase o componentes.
+
+SERVICIOS: Clases con objetivo claro, reutilizacion de codigo.
+    o
+PROVIDERS: Son SERVICIOS que proveen de datos o funcionalidades mediante sus metodos.
+
+DIRECTIVAS: funcionalidades aplicables al DOM y a los elementos HTML. puede generar que un div se muestre o no, o puede dar estilos a elementos entre otros. "son nuevos atributos para aplicar a la plantilla"
+
+MODULOS: puedo tener modulos para la aplicacion principal y dentro tener otros para hacer diferentes funcionalidades y reutilizar en otros proyectos.
+
+        PASOS DE INSTALACIÓN
+1.Controlar que tenga instalada la ultima version de NodeJs o actualizarla.
+2.Abrir CMD, actualizar npm (gestor de paquetes de NodeJs)
+    npm install -g npm@latest
+3.Borrar la Cache
+    npm cache clean --force
+4.Desactivar las auditorias para evitar fallos, temas de seguridad
+    npm set audit false
+5.Desinstalar En el caso que tenga versiones anteriores de Angular CLI, programa que genera  funcionalidades, servidor local, webpack para comprimir asets, generar builds, generar codigos, generar componentes, etc
+    npm uninstall -g angular-cli
+    npm unisntall -g @angular/cli
+6.Borrar la cache nuevamente
+    npm cache clean --force
+7.Instalar la ultima version de Angular CLI
+    npm install -g @angular/cli@latest
+8. ir al directorio de nuestro proyecto donde quiera hacer uso de Angular
+    ng new
+(nos pide nombre del nuevo proyecto)
+(opciones de css)
+9. Arrancar el webpack para que compile  y transcriba los ficheros y lansa un LIVE SERVE y LIVE RELOAD (RECARGA PANTALLA AUTOMATICAMENTE)
+    ng serve
+            <<MANTENER EL "NG SERVE" CORRIENDO EN CMD para que funciones el live serve>>
+*/
+
+
     </script>
 
 </head>
