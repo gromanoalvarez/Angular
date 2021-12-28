@@ -14,10 +14,18 @@ var article_routes = require('./routes/article')
 app.use(bodyParser.urlencoded({extended:false})); //Para utilizar el body parser
 app.use(bodyParser.json()); //Convierte cualquier petición que llegue a  json
 
+//7. CORS
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
+});
+
 //6.CON USE PUEDO Añadir prefijos /api a rutas y CARGAR ROUTES/ARTICLE.JS
 app.use('/api', article_routes);
 //http://localhost:3900/api/datos-curso asi lo interpreta
-
 
 //4.Exportar módulo (es el fichero actual)
 module.exports = app; //permite usar el objeto "fuera de este fichero" hacia el index.js
