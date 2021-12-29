@@ -1,6 +1,6 @@
 
 /**
- *          ESTE ES UN COMPONENTE
+ *          ESTE ES UN COMPONENTE (manualmente generando el fichero)
  *  .component indica la clase del componente
  *  .ts que corre con typeScript
  * 
@@ -8,6 +8,11 @@
  * 
  * {{ BINDING por INTERPOLACIÓN }}
  * Para "mostrar un dato", una "union de una propiedad a la vista" y mostrar mediante las llaves 
+ * 
+ * 
+ * Cuando se está desarrollando una aplicación utilizamos 
+ *          ANGULAR CLI         para crear los componentes 
+ * Con un simple comando podemos generar un componente haciendolo más rápido de manera automática
  * 
  */
 

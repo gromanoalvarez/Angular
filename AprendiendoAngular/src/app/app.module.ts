@@ -5,16 +5,18 @@ import { AppComponent } from './app.component'; //LO QUE SE DEBE PONER EN "decla
 /**
  * 
  * Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN 
- * 
+ * es una BUENA PRACTICA con el nombre de mis componentes usar sufijos "component"
  */
 
  import { MiComponente } from './components/mi-componente/mi-componente.component';
+import { PeliculasComponent } from './components/peliculas/peliculas.component';
+import { PruebasComponent } from './components/pruebas/pruebas.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, // TANTO PARA COMPONENTES COMO PARA DIRECTIVAS COMO PIPES
-    MiComponente // NO OLVIDAR, instanciar aqui todos los componentes importados
+    MiComponente, PeliculasComponent, PruebasComponent // NO OLVIDAR, instanciar aqui todos los componentes importados
   ],
   imports: [
     BrowserModule //MÓDULOS QUE QUIERO UTILIZAR
