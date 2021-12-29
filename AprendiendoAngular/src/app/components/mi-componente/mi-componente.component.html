@@ -9,7 +9,12 @@ Ahora tenemos toda La Vista separada del componente(el html y la templeteUrl por
 <hr>
 
 <p>Estos son los componentes desde la vista mi-componente.component.html</p>
-<peliculas></peliculas>
-<app-pruebas></app-pruebas>
 
+<button (click)="ocultarPeliculas()">Ocultar películas</button>
+
+<div *ngIf="mostrarPeliculas">
+    <peliculas></peliculas>
+</div>
+<app-pruebas></app-pruebas>
+<p>Desde un componente puedo incluir otros componentes</p>
 <hr>

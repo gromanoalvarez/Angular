@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'peliculas', //nombre de la etiqueta en la vista
   templateUrl: './peliculas.component.html',
   styleUrls: ['./peliculas.component.css']
 })
-export class PeliculasComponent implements OnInit {
+//hooks(Eventos "implementados" como OnInit, DoCheck que se lanzan automaticamente al cargar mi componente)
+export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
 
-  constructor() { }
+//Puedo agregar propiedades
+  public titulo: string
 
-  ngOnInit(): void {
+  constructor() {
+    this.titulo="PELÍCULAS: El constructor carga este valor en la propiedad titulo"
+    console.log('Constructor, asigna valores')
+   }
+
+  ngOnInit() {
+    console.log("Evento onInit, componente iniciado. Aca puede ir lógica y funcionalidad")
+  }
+
+  ngDoCheck() {
+    console.log("DoCheck lanzado por cualquier cambio que hagas en el componente")
+  }
+
+  ngOnDestroy(): void {
+      console.log("El componente se va a eliminar del DOM")
+  }
+//Este método se llamará desde el evento click de la vista peliculas.component.html
+  cambiarTitulo() {
+    this.titulo = "El título se ha modificado por hacer click al button"
   }
 
 }

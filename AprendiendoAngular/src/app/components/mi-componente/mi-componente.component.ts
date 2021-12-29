@@ -28,15 +28,19 @@ export class MiComponente{ // esta es la clase
     public titulo: string; 
     public comentario: string;
     public year: number;
+    public mostrarPeliculas: boolean;
 
     // segundo el constructor
     constructor(){
         this.titulo = 'Hola mundo, este es MI COMPONENTE'
         this.comentario = '{{Usando Binding por Interpolación}}'
         this.year = 2021;
+        this.mostrarPeliculas = true;
 
         console.log("Componente mi-componente cargado!!");
         console.log(this.titulo, this.comentario, this.year)
     }
-
+    ocultarPeliculas(){
+        this.mostrarPeliculas = false;
+    }
 }
