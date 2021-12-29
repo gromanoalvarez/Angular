@@ -36,9 +36,6 @@ export class MiComponente{ // esta es la clase
         this.comentario = '{{Usando Binding por Interpolación}}'
         this.year = 2021;
         this.mostrarPeliculas = true;
-
-        console.log("Componente mi-componente cargado!!");
-        console.log(this.titulo, this.comentario, this.year)
     }
     ocultarPeliculas(){
         this.mostrarPeliculas = false;
