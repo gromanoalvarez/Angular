@@ -1,5 +1,6 @@
 
 /**
+ *          ESTE ES UN COMPONENTE
  *  .component indica la clase del componente
  *  .ts que corre con typeScript
  * 
@@ -14,11 +15,7 @@ import { Component } from '@angular/core'; // importo gracias a lo instalado pre
 
 @Component({ // Para indicar las PROPIEDADES o características de este componente
     selector: 'mi-componente', //nombre de la etiqueta
-    template: ` 
-    <h1>{{titulo}}</h1> 
-    <h2>{{year}}</h2>
-    <p>{{comentario}}</p>
-    ` //usar templeteStrings ``
+    templateUrl: './mi-componente.component.html' //usar templeteStrings ``
 })
 export class MiComponente{ // esta es la clase 
 
