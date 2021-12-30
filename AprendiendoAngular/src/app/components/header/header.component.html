@@ -8,23 +8,26 @@
             </span>
         </div>
 
-<!--MENU-->
+<!--        MENU
+Para que la interacción en angular sea SPA y cambie sin actualizar la url
+DEBO CAMBIAR EL HREF Y USAR [routerLink]="['/rutaDeseadaAEnlazar']" 
+-->
         <nav id="menu">
             <ul>
                 <li>
-                    <a href="index.html">Inicio</a>
+                    <a [routerLink]="['/home']" >Inicio</a>
                 </li>
                 <li>
-                    <a href="blog.html">Blog</a>
+                    <a [routerLink]="['/blog']">Blog</a>
                 </li>
                 <li>
-                    <a href="formulario.html">Formulario</a>
+                    <a [routerLink]="['/formulario']">Formulario</a>
                 </li>
                 <li>
-                    <a href="#">Página 1</a>
+                    <a [routerLink]="['/peliculas']">Películas</a>
                 </li>
                 <li>
-                    <a href="#">Página 2</a>
+                    <a [routerLink]="['/pagina-de-pruebas']">Página</a>
                 </li>
             </ul>
         </nav>
