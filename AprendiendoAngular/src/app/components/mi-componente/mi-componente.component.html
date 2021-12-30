@@ -15,6 +15,10 @@ Ahora tenemos toda La Vista separada del componente(el html y la templeteUrl por
 <div *ngIf="mostrarPeliculas">
     <peliculas></peliculas>
 </div>
-<app-pruebas></app-pruebas>
+<app-pruebas></app-pruebas> <!--Asi los componentes actuan de forma ESTATICA, en linea, 
+para que no sea asi creo el app.routing.ts . 
+Proponemos que el "componente" sea una "página" en si misma
+-->
+<app-home></app-home>
 <p>Desde un componente puedo incluir otros componentes</p>
 <hr>
