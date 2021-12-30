@@ -87,10 +87,14 @@ body{
 #menu a{
     text-decoration: none; /*saca los subrayados*/
     color: #444;
+    font-weight: bolder;
     transition: 300ms all; /*transicion al hover */
 }
-#menu a:hover {
-    color: #f13e3e;
+#menu a:hover, .active {
+    text-decoration: underline solid 4px red ;
+}
+.active {
+    color: #f13e3e  !important ;  /* !IMPORTANT para que sea lo prioritario*/
 }
 .clearfix{ 
     clear: both;/*Bloquea los floats que no suban al header*/

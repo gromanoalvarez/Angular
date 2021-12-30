@@ -2,7 +2,7 @@
     <div class="center">
 <!--LOGO-->
         <div id="logo">
-            <img src="assets/images/Angular_full_color_logo.svg.png" alt="Logotipo" class="app-logo">
+            <img src="../../../assets/images/Lips_SVG_Kiss_Svg_9.png" alt="Logotipo" class="app-logo">
             <span id="brand">
                 <strong>Framework</strong>Angular
             </span>
@@ -11,23 +11,25 @@
 <!--        MENU
 Para que la interacción en angular sea SPA y cambie sin actualizar la url
 DEBO CAMBIAR EL HREF Y USAR [routerLink]="['/rutaDeseadaAEnlazar']" 
+
+Utilizar DIRECTIVA [routerLinkActive] para aplicar la clase active que di formato en el styles.css
 -->
         <nav id="menu">
             <ul>
                 <li>
-                    <a [routerLink]="['/home']" >Inicio</a>
+                    <a [routerLink]="['/home']" [routerLinkActive]="['active']" >Inicio</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/blog']">Blog</a>
+                    <a [routerLink]="['/blog']" [routerLinkActive]="['active']">Blog</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/formulario']">Formulario</a>
+                    <a [routerLink]="['/formulario']" [routerLinkActive]="['active']" >Formulario</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/peliculas']">Películas</a>
+                    <a [routerLink]="['/peliculas']" [routerLinkActive]="['active']">Películas</a>
                 </li>
                 <li>
-                    <a [routerLink]="['/pagina-de-pruebas']">Página</a>
+                    <a [routerLink]="['/pagina-de-pruebas']" [routerLinkActive]="['active']">Página</a>
                 </li>
             </ul>
         </nav>
