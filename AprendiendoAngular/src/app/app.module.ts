@@ -12,12 +12,14 @@ import { AppComponent } from './app.component'; //LO QUE SE DEBE PONER EN "decla
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { PruebasComponent } from './components/pruebas/pruebas.component';
 import { HeaderComponent } from './components/header/header.component';
+import { SliderComponent } from './components/slider/slider.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, // TANTO PARA COMPONENTES COMO PARA DIRECTIVAS COMO PIPES
-    MiComponente, PeliculasComponent, PruebasComponent, HeaderComponent // NO OLVIDAR, instanciar aqui todos los componentes importados
+    MiComponente, PeliculasComponent, PruebasComponent, HeaderComponent, SliderComponent, SidebarComponent // NO OLVIDAR, instanciar aqui todos los componentes importados
   ],
   imports: [
     BrowserModule //MÓDULOS QUE QUIERO UTILIZAR
