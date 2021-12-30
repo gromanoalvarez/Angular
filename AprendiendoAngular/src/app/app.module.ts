@@ -14,12 +14,13 @@ import { PruebasComponent } from './components/pruebas/pruebas.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent, // TANTO PARA COMPONENTES COMO PARA DIRECTIVAS COMO PIPES
-    MiComponente, PeliculasComponent, PruebasComponent, HeaderComponent, SliderComponent, SidebarComponent // NO OLVIDAR, instanciar aqui todos los componentes importados
+    MiComponente, PeliculasComponent, PruebasComponent, HeaderComponent, SliderComponent, SidebarComponent, FooterComponent // NO OLVIDAR, instanciar aqui todos los componentes importados
   ],
   imports: [
     BrowserModule //MÓDULOS QUE QUIERO UTILIZAR
