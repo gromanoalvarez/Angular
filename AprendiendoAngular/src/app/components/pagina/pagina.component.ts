@@ -23,13 +23,19 @@ export class PaginaComponent implements OnInit {
 
    /**PRIMER METODO QUE EJECUTA LUEGO DEL CONSTRUCTOR */
   ngOnInit(): void {
-    
     // Suscribe() es un OBSERVABLE: mira o espera una respuesta de un servicio, asincrono mayormente
     this._route.params.subscribe((params: Params) => {
       this.nombres=params['nombres'];
       this.apellidos=params['apellidos']
     });
+  }
 
+  redireccion(){ 
+    //a traves de componente de angular _router  y su metodo navigate
+    //this._router.navigate(['/formulario']);
+    
+    //sino tambien puedo pasar incluso dentro de la misma pagina parametros
+    this._router.navigate(['pagina-de-pruebas', 'Ger', 'Roma']);
   }
 
 }
