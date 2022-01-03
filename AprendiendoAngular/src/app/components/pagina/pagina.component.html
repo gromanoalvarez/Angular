@@ -1,1 +1,11 @@
 <h1 class="subheader">Página de Pruebas</h1>
+
+<!-- Directivas "condicionales" *ngIf
+Si se cumple la condición muestra el contenido de la etiqueta sino no.
+-->
+<div *ngIf="nombres && apellidos">
+    <h2>Ingresamos en parámetro OBLIGATORIO Y OPCIONAL de URL es: <br>
+        Nombres: {{nombres}}  <br>
+        Apellidos: {{apellidos}}
+    </h2>    
+</div>

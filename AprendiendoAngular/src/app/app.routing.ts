@@ -34,8 +34,11 @@ const appRoutes: Routes = [
     {
         path: 'peliculas', component: PeliculasComponent
     },
-    {
+    {//B)TRANSFORMA PARAMETRO OPCIONAL: Creando una ruta "ANTES" que sea similar pero sin parametro extra
         path: 'pagina-de-pruebas', component: PaginaComponent
+    },    
+    {//A)los : declaran PARAMETRO FIJO, si no lo pongo me tira a errorComponent
+        path: 'pagina-de-pruebas/:nombres/:apellidos', component: PaginaComponent
     },
     {
         path: '**', component: ErrorComponent
