@@ -9,3 +9,6 @@ Si se cumple la condición muestra el contenido de la etiqueta sino no.
         Apellidos: {{apellidos}}
     </h2>    
 </div>
+<div *ngIf=" !nombres || !apellidos ">
+    <h2>No hay parámetros ingresados por la URL</h2>    
+</div>
