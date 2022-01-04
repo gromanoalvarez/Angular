@@ -1,8 +1,8 @@
 <h1 class="subheader">Página de Pruebas</h1>
 
-<!-- Directivas "condicionales" *ngIf
+<!-- 1ra opcion: Directivas "condicionales" *ngIf
 Si se cumple la condición muestra el contenido de la etiqueta sino no.
--->
+
 <div *ngIf="nombres && apellidos">
     <h2>Ingresamos en parámetro OBLIGATORIO U OPCIONAL de URL es: <br>
         Nombres: {{nombres}}  <br>
@@ -12,6 +12,20 @@ Si se cumple la condición muestra el contenido de la etiqueta sino no.
 <div *ngIf=" !nombres || !apellidos ">
     <h2>No hay parámetros ingresados por la URL</h2>    
 </div>
+-->
 
+<!-- 2da opcion: Directiva "estructural" con then y plantilla ng-template-->
+<div *ngIf="nombres && apellidos; then siHayParametros el noHayParametros"></div>
+
+<ng-template #siHayParametros>
+    <h2>Ingresamos los parámetro OBLIGATORIO U OPCIONAL de URL: <br>
+        Nombres: {{nombres}}  <br>
+        Apellidos: {{apellidos}}
+    </h2>  
+</ng-template>
+
+<ng-template #noHayParametros>
+    <h2>No hay parámetros ingresados por la URL</h2>    
+</ng-template>
 
 <button (click)="redireccion()">Ingresar nombres y apellidos</button>
