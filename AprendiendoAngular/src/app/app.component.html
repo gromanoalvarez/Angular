@@ -1,5 +1,12 @@
+
+<!-- COMPONENTE FIJO en todas las pestañas igual -->
 <app-header></app-header>
-<app-slider></app-slider>
+
+<!-- CAMBIAR EL COMPONENTE SEGUN LA PESTAÑA:
+  
+APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
+Con la directivaNombre le paso el homeText(creado en app.component.ts) al componente hijo slider -->
+<app-slider [directivaNombre]="homeText"></app-slider>
 
 <div class="center">
   <section id="content">

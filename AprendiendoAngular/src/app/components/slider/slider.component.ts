@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
+//decorador @Input
 
-  constructor() { }
+   @Input() directivaNombre: string;
 
-  ngOnInit(): void {
+  constructor() {
+    this.directivaNombre="";
+   }
+
+  ngOnInit() {
   }
 
 }
