@@ -46,6 +46,12 @@ opcion 4... -->
         </span>
 
         <a href="#">Leer más</a>
-        <div class="clearfix"></div>
-        <!--LIMPIA-->
+        <!-- Directiva de Evento click 
+        Dispara un evento que llama a un metodo seleccionar que PASARA PARAMETRO AL COMPONENTE PADRE
+        -->
+        <button (click)="seleccionar($event, peli)">
+          Seleccionar como Favorita
+        </button>
+
+        <div class="clearfix"></div><!--LIMPIA-->
       </article>

@@ -5,6 +5,17 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
 
 <div class="center">
   <section id="content">
+
+    <div id="favorita" *ngIf="favorita">
+      <h2 class="subheader">Mi Película Favorita</h2>
+      <h4>
+        <!-- {{favorita.title}} -->
+      </h4>
+      <h5>
+        <!-- {{favorita.year}} -->
+      </h5>
+    </div>
+
     <h1 class="subheader">Películas</h1>
 <!--
   <h2>{{ titulo }}</h2>
@@ -33,7 +44,6 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
     <h2 class="subheader">Listado de películas</h2>
 
   -->
-
     <div id="articles" *ngIf="peliculas">
             <!--DIRECTIVA ngFor
         Para listar todos los elementos del array.
@@ -43,7 +53,9 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
         <app-pelicula 
           [peli]="peli"
           [i]="i"
+          (MarcarFavorita)="mostrarFavorita($event)"
         ></app-pelicula>
+          <!-- Traje el Output del componente hijo(MarcarFavorita) y hago un metodo donde paso el evento -->
       </div>
     </div>
   </section>
