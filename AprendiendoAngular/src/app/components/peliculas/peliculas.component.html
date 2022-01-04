@@ -1,7 +1,48 @@
 <h1 class="subheader">Películas</h1>
 <h2>{{titulo}}</h2>
-<p>Esta es la VISTA del componente PELICULAS.component.html <br>
+<p>Esta es la VISTA del componente PELÍCULAS.component.html <br>
 y mi tÍtulo fue cargado con Binding por Interpolación
 </p>
 <!--Evento click ingresado manualmente, que convoca al metodo cambiarTitulo() que se encuentra dentro del component.ts-->
 <button (click)="cambiarTitulo()">Cambiar Título</button>
+
+<hr>
+
+<h2>Mostrar primera película</h2>
+{{peliculas[0].title}}
+
+<hr>
+
+<h2 >Número de películas</h2>
+
+<!--DIRECTIVA CONDICIONAL es un atributo de un elemento html que agrega una funcionalidad extra-->
+<div *ngIf="peliculas.length <= 3">
+    Hay pocas películas:
+</div>
+<div *ngIf="peliculas.length > 3">
+    Hay muchas películas:
+</div>
+{{peliculas.length}}
+
+<hr>
+
+<h2 class="subheader">Listado de películas</h2>
+<div id="articles" *ngIf="peliculas"> 
+
+    <!--DIRECTIVA ngFor
+    Para listar todos los elementos del array.
+    Recorre el array PELICULAS y "por cada vuelta crea la variable LET PELI" que usare para sacar los valores deseados
+    -->
+    <article class="article-item" *ngFor="let peli of peliculas; let i = index">
+        <div class="image-wrap">
+            <!--Inserto las imagenes de cada pelicula del array-->
+            <img  width="130px" height="130px" src="{{peli.image}}" alt="{{peli.title}}">
+        </div>
+        <h2>{{i}}.  {{peli.title}}</h2> <!-- i. para mostrar la posicion y luego el titulo de cada pelicula-->
+        <span class="date">
+            Hace 5 minutos
+        </span>
+        <a href="#">Leer más</a>
+        <div class="clearfix"></div> <!--LIMPIA-->
+    </article>
+</div>
