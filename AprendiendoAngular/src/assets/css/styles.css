@@ -343,6 +343,26 @@ textarea{
     margin-bottom: 0px;
     border: none;
 }
+.year-green{
+    display:block;
+    background: green;
+    color: white;
+    padding: 5px;
+    width: 121PX;
+    text-align: center;
+}
+.year-red{
+    display:block;
+    background: red;
+    color: white;
+    padding: 5px;
+    width: 121px;
+    text-align: center;
+}
+
+
+
+
 /*RESPONSIVE*/
 @media (max-width: 1488px){/*Desde 0 hasta 1488px*/
     .center{
