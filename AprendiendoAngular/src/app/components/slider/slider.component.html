@@ -4,7 +4,7 @@
     'slider-small': size == 'small'
 }">
 
-    <h1>You Rock</h1>
+    <h1 *ngIf=" !size || size == 'big' ">You Rock</h1>
     <!-- Llamo una propiedad del COMPONENTE PADRE -->
     <H2 style="margin-top:0; padding-top: 1em;">{{directivaNombre}}</H2> 
 
