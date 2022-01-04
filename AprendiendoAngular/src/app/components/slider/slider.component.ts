@@ -3,18 +3,16 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
-  styleUrls: ['./slider.component.css']
+  styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
-//decorador @Input
+  //decorador @Input
 
-   @Input() directivaNombre: string;
+  @Input() directivaNombre: string;
 
   constructor() {
-    this.directivaNombre="";
-   }
-
-  ngOnInit() {
+    this.directivaNombre = '';
   }
 
+  ngOnInit() {}
 }

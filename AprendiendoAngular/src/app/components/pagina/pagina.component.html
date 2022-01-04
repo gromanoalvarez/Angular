@@ -1,31 +1,48 @@
-<h1 class="subheader">Página de Pruebas</h1>
+<!-- PASAR DESDE COMPONENTE PADRE A COMPONENTE HIJO:
+APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
+Con la directivaNombre le paso el homeText(creado en app.component.ts) al componente hijo slider -->
+<app-slider
+  [directivaNombre]="
+    'Página'
+  "
+></app-slider>
 
-<!-- 1ra opcion: Directivas "condicionales" *ngIf
-Si se cumple la condición muestra el contenido de la etiqueta sino no.
+<div class="center">
+  <section id="content">
+    <h1 class="subheader">Página de Pruebas</h1>
 
-<div *ngIf="nombres && apellidos">
-    <h2>Ingresamos en parámetro OBLIGATORIO U OPCIONAL de URL es: <br>
-        Nombres: {{nombres}}  <br>
-        Apellidos: {{apellidos}}
-    </h2>    
+    <!-- 1ra opcion: Directivas "condicionales" *ngIf
+    Si se cumple la condición muestra el contenido de la etiqueta sino no.
+    
+    <div *ngIf="nombres && apellidos">
+        <h2>Ingresamos en parámetro OBLIGATORIO U OPCIONAL de URL es: <br>
+            Nombres: {{nombres}}  <br>
+            Apellidos: {{apellidos}}
+        </h2>    
+    </div>
+    <div *ngIf=" !nombres || !apellidos ">
+        <h2>No hay parámetros ingresados por la URL</h2>    
+    </div>
+    -->
+
+    <!-- 2da opcion: Directiva "estructural" con then y plantilla ng-template-->
+    <div
+      *ngIf="nombres && apellidos; then siHayParametros; el: noHayParametros"
+    ></div>
+
+    <ng-template #siHayParametros>
+      <h2>
+        Ingresamos los parámetro OBLIGATORIO U OPCIONAL de URL: <br />
+        Nombres: {{ nombres }} <br />
+        Apellidos: {{ apellidos }}
+      </h2>
+    </ng-template>
+
+    <ng-template #noHayParametros>
+      <h2>No hay parámetros ingresados por la URL</h2>
+    </ng-template>
+
+    <button (click)="redireccion()">Ingresar nombres y apellidos</button>
+  </section>
+  <app-sidebar></app-sidebar>
 </div>
-<div *ngIf=" !nombres || !apellidos ">
-    <h2>No hay parámetros ingresados por la URL</h2>    
-</div>
--->
-
-<!-- 2da opcion: Directiva "estructural" con then y plantilla ng-template-->
-<div *ngIf="nombres && apellidos; then siHayParametros el noHayParametros"></div>
-
-<ng-template #siHayParametros>
-    <h2>Ingresamos los parámetro OBLIGATORIO U OPCIONAL de URL: <br>
-        Nombres: {{nombres}}  <br>
-        Apellidos: {{apellidos}}
-    </h2>  
-</ng-template>
-
-<ng-template #noHayParametros>
-    <h2>No hay parámetros ingresados por la URL</h2>    
-</ng-template>
-
-<button (click)="redireccion()">Ingresar nombres y apellidos</button>

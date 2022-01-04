@@ -1,1 +1,11 @@
-<h2 class="subheader">{{title}}</h2>
+<!-- PASAR DESDE COMPONENTE PADRE A COMPONENTE HIJO:
+APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
+Con la directivaNombre le paso el homeText(creado en app.component.ts) al componente hijo slider -->
+<app-slider [directivaNombre]="'Bienvenido a mi web SPA con Angular (desde componente padre)'"></app-slider>
+
+<div class="center">
+  <section id="content">
+    <h2 class="subheader">{{ title }}</h2>
+  </section>
+  <app-sidebar></app-sidebar>
+</div>
