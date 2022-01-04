@@ -9,9 +9,11 @@ export class SliderComponent implements OnInit {
   //decorador @Input
 
   @Input() directivaNombre: string;
+  @Input() size: string;
 
   constructor() {
     this.directivaNombre = '';
+    this.size = "";
   }
 
   ngOnInit() {}

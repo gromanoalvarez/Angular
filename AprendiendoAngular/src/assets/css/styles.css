@@ -100,7 +100,7 @@ body{
     clear: both;/*Bloquea los floats que no suban al header*/
     float: none; /* limpia los floats del header para que los floats del main no se cuelen arriba*/
 }
-#slider{
+#slider, slider-big{
     width: 100%;
     height: 700px;
     /* line-height: 320px; */

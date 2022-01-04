@@ -1,17 +1,27 @@
-<div id="slider" >
+<!-- Uso la directiva ngClass para recibir un parametro del padre e identificar que stilo poner al slider -->
+<div id="slider" [ngClass]="{
+    'slider-big': !size || size == 'big',
+    'slider-small': size == 'small'
+}">
+
     <h1>You Rock</h1>
     <!-- Llamo una propiedad del COMPONENTE PADRE -->
     <H2 style="margin-top:0; padding-top: 1em;">{{directivaNombre}}</H2> 
-    <a href="blog.html" class="btn-white" >
-        <span id="irAlBlog0"> Acesse o Blog</span><br>
-        <span id="irAlBlog1">Go To The Blog</span><br>
-        <span id="irAlBlog2">Gehen Sie Zum Blog</span><br>
-        <span id="irAlBlog3">انتقل إلى المدونة</span><br>
-        <span id="irAlBlog4">Ir AL blog </span><br>
-        <span id="irAlBlog5">Перейти в блог</span><br>
-        <span id="irAlBlog6">ブログに行く</span><br>
-        <span id="irAlBlog7">Gaan na blog</span><br>
-        <span id="irAlBlog8">轉到博客 </span><br>
-        <span id="irAlBlog9">V</span><br>
-    </a>
+
+    <div *ngIf=" !size || size == 'big' ">
+        <!-- IMPORTANTE ROUTERLINK PARA HACER ENLACE -->
+        <a [routerLink]="['/blog']" class="btn-white" >
+            <span id="irAlBlog0"> Acesse o Blog</span><br>
+            <span id="irAlBlog1">Go To The Blog</span><br>
+            <span id="irAlBlog2">Gehen Sie Zum Blog</span><br>
+            <span id="irAlBlog3">انتقل إلى المدونة</span><br>
+            <span id="irAlBlog4">Ir AL blog </span><br>
+            <span id="irAlBlog5">Перейти в блог</span><br>
+            <span id="irAlBlog6">ブログに行く</span><br>
+            <span id="irAlBlog7">Gaan na blog</span><br>
+            <span id="irAlBlog8">轉到博客 </span><br>
+            <span id="irAlBlog9">V</span><br>
+        </a>
+    </div>
+
 </div>

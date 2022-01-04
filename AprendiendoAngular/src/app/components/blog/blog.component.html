@@ -1,7 +1,10 @@
-<!-- PASAR DESDE COMPONENTE PADRE A COMPONENTE HIJO:
+<!-- PASAR VARIABLES COMPONENTE PADRE A COMPONENTE HIJO:
 APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
 Con la directivaNombre le paso el homeText(creado en app.component.ts) al componente hijo slider -->
-<app-slider [directivaNombre]="'Blog'"></app-slider>
+<app-slider 
+  [directivaNombre]="'Blog'"
+  [size]="'small'"  
+></app-slider>
 
 <div class="center">
   <section id="content">
