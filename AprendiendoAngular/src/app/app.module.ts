@@ -4,8 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
 
 /**
- * 
- * Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN 
+ *
+ * Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN
  * es una BUENA PRACTICA con el nombre de mis componentes usar sufijos "component"
  */
 
@@ -23,17 +23,31 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { PaginaComponent } from './components/pagina/pagina.component';
 import { ErrorComponent } from './components/error/error.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
+import { EsParPipe } from './pipes/espar.pipe';
 
 @NgModule({
   declarations: [
     AppComponent, // TANTO PARA COMPONENTES COMO PARA DIRECTIVAS COMO PIPES
-    MiComponente, PeliculasComponent, PruebasComponent, HeaderComponent, SliderComponent, SidebarComponent, FooterComponent, HomeComponent, BlogComponent, FormularioComponent, PaginaComponent, ErrorComponent, PeliculaComponent // NO OLVIDAR, instanciar aqui todos los componentes importados
+    MiComponente,
+    PeliculasComponent,
+    PruebasComponent,
+    HeaderComponent,
+    SliderComponent,
+    SidebarComponent,
+    FooterComponent,
+    HomeComponent,
+    BlogComponent,
+    FormularioComponent,
+    PaginaComponent,
+    ErrorComponent,
+    PeliculaComponent, // NO OLVIDAR, instanciar aqui todos los componentes importados
+    EsParPipe,
   ],
   imports: [
     BrowserModule, //MÓDULOS QUE QUIERO UTILIZAR
-    routing
+    routing,
   ],
   providers: [appRoutingProviders], //SERVICIOS
-  bootstrap: [AppComponent] //INDICAR CUAL ES EL COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO 
+  bootstrap: [AppComponent], //INDICAR CUAL ES EL COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO
 })
-export class AppModule { }
+export class AppModule {}
