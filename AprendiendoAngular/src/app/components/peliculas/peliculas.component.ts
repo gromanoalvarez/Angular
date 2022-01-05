@@ -11,6 +11,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
   public titulo: string;
   public peliculas: Pelicula[]; //array de objetos con propiedad titulo e imagen
   public favorita!:  Pelicula;
+  public fecha: any;
 
   constructor() {
     this.titulo = "El constructor de PeliculasComponent carga este valor en la propiedad titulo";
@@ -25,6 +26,7 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
       new Pelicula("Los vengadores: Endgame", 2018, 'https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic4.abc.es%2Fmedia%2Fpeliculas%2F000%2F052%2F759%2Fvengadores-endgame-1.jpg&nuevoancho=690&medio=abc'),
       new Pelicula("Batman vs Superman", 2011, 'https://i0.wp.com/elrincon.tv/wp-content/uploads/2016/03/batman_v_superman.jpg?resize=660%2C330&ssl=1')
     ];
+    this.fecha = new Date(2022,0,5);
   }
 
   ngOnInit(): void {

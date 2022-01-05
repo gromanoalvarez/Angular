@@ -6,14 +6,23 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
 <div class="center">
   <section id="content">
 
-    <div *ngIf="favorita">
+    <div id="favorita" *ngIf="favorita">
       <h2 class="subheader">Mi Película Favorita actualmente es:</h2>
+
+      <!-- PIPES (tuberias)
+         {{ ValorDelDato | nombreDelPipe }} 
+         son pequeñas funciones para usar en la vista,
+         vienen por defecto (https://angular.io/api/core/Pipe)
+         o las puedo crear-->
       <h4>
-        {{favorita.title}} 
+         {{ favorita.title | uppercase }}  <!--o lowercase -->
       </h4>
       <h5>
-         {{favorita.year}}
+        Del  {{ favorita.year | date  }} <!--sino parametro 'mm/dd/yyyy' -->
       </h5>
+      <h5>
+       Hoy es {{ this.fecha | date: 'short' }} <!--sino parametro full o fullDate-->
+     </h5>
     </div>
 
     <h1 class="subheader">Películas</h1>
