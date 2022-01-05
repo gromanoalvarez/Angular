@@ -1,17 +1,63 @@
 <!-- PASAR DESDE COMPONENTE PADRE A COMPONENTE HIJO:
 APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
 Con la directivaNombre le paso el homeText(creado en app.component.ts) al componente hijo slider -->
-<app-slider 
-  [directivaNombre]="'Formulario'"
-  [size]="'small'"  
-></app-slider>
+<app-slider [directivaNombre]="'Formulario'" [size]="'small'"></app-slider>
 
 <div class="center">
   <section id="content">
     <h1 class="subheader">Formulario</h1>
-</section>
+
+    <!-- Para que el form sea reactivo en Angular y funcione y valide debo 
+    1ro importar en app.module.ts el FormsModule y cargar en imports del mismo 
+    2do usar el evento (ngSubmit) para vincular con metodo onSubmit al ts
+    3ro poner nombre al form con #userForm="ngForm" 
+    4to poner el nombre para angular a cada input #nombre="ngModel"
+    5to decirle que campo del objeto .ts va a rellenar:
+      [(ngModel)]="user.nombre" 
+    donde [(ngModel)] es la etiqueta de binding bidireccional
+    y "user.nombre" es el campo de mi objeto user que llenará-->
+    <form class="mid-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group">
+        <label for="nombre">Nombre: {{user.nombre}}</label>
+        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre"/>
+      </div>
+
+      <div class="form-group">
+        <label for="apellidos">Apellidos: {{user.apellidos}}</label>
+        <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" />
+      </div>
+
+      <div class="form-group">
+        <label for="bio">Biografía: {{user.bio}}</label>
+        <textarea name="bio" #bio="ngModel" [(ngModel)]="user.bio"></textarea>
+      </div>
+
+      <div class="form-group radio-button">
+        <input type="radio" name="genero" value="hombre" #genero="ngModel" [(ngModel)]="user.genero" />Hombre
+        <input type="radio" name="genero" value="mujer" [(ngModel)]="user.genero"/>Mujer
+        <input type="radio" name="genero" value="otro" [(ngModel)]="user.genero"/>Otro
+        <br>
+        {{user.genero}}
+
+      </div>
+
+      <div class="clearfix"></div>
+      <!--Limpiar floats-->
+
+      <input type="submit" value="Enviar" class="btn btn-success" />
+
+    </form>
+
+    <div *ngIf="user.nombre">
+       <h3>
+        Soy {{user.nombre}} {{user.apellidos}} ({{user.genero}})
+       </h3> 
+       <p>Esta es mi biografia: 
+         <br>
+         {{user.bio}}</p>
+    </div>
+
+  </section>
   <app-sidebar></app-sidebar>
 </div>
-
-
-

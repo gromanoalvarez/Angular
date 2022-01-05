@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
-
+import { FormsModule } from '@angular/forms';
 /**
  *
  * Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN
@@ -46,6 +46,7 @@ import { EsParPipe } from './pipes/espar.pipe';
   imports: [
     BrowserModule, //MÓDULOS QUE QUIERO UTILIZAR
     routing,
+    FormsModule
   ],
   providers: [appRoutingProviders], //SERVICIOS
   bootstrap: [AppComponent], //INDICAR CUAL ES EL COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO
