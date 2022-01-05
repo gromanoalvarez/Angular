@@ -6,13 +6,13 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
 <div class="center">
   <section id="content">
 
-    <div id="favorita" *ngIf="favorita">
-      <h2 class="subheader">Mi Película Favorita</h2>
+    <div *ngIf="favorita">
+      <h2 class="subheader">Mi Película Favorita actualmente es:</h2>
       <h4>
-        <!-- {{favorita.title}} -->
+        {{favorita.title}} 
       </h4>
       <h5>
-        <!-- {{favorita.year}} -->
+         {{favorita.year}}
       </h5>
     </div>
 
@@ -45,18 +45,18 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
 
   -->
     <div id="articles" *ngIf="peliculas">
-            <!--DIRECTIVA ngFor
-        Para listar todos los elementos del array.
-        Recorre el array PELICULAS y "por cada vuelta CREA la variable LET PELI" que usare para sacar los valores deseados
-         y tambien crea la variable LET I para las posiciones del array-->
-      <div *ngFor="let peli of peliculas; let i = index">
-        <app-pelicula 
-          [peli]="peli"
-          [i]="i"
-          (MarcarFavorita)="mostrarFavorita($event)"
-        ></app-pelicula>
-          <!-- Traje el Output del componente hijo(MarcarFavorita) y hago un metodo donde paso el evento -->
-      </div>
+                <!--DIRECTIVA ngFor
+            Para listar todos los elementos del array.
+            Recorre el array PELICULAS y "por cada vuelta CREA la variable LET PELI" que usare para sacar los valores deseados
+            y tambien crea la variable LET I para las posiciones del array-->
+          <div *ngFor="let pelicula of peliculas; let i = index">
+            <app-pelicula 
+              [pelicula]="pelicula"
+              [i]="i"
+              (MarcarFavorita)="mostrarFavorita($event)"
+            ></app-pelicula>
+              <!-- Traje el Output del componente hijo(MarcarFavorita) y hago un metodo donde paso el evento -->
+          </div>
     </div>
   </section>
   <app-sidebar></app-sidebar>

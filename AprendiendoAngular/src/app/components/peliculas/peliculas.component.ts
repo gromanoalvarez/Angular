@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit, DoCheck, OnDestroy } from '@angular/core';
 import { Pelicula } from '../../models/pelicula';
 @Component({
   selector: 'peliculas', //nombre de la etiqueta en la vista
@@ -10,10 +10,10 @@ export class PeliculasComponent implements OnInit, DoCheck, OnDestroy {
 
   public titulo: string;
   public peliculas: Pelicula[]; //array de objetos con propiedad titulo e imagen
-  public favorita =  Pelicula;
+  public favorita!:  Pelicula;
 
   constructor() {
-    this.titulo = "El constructor carga este valor en la propiedad titulo";
+    this.titulo = "El constructor de PeliculasComponent carga este valor en la propiedad titulo";
     // this.peliculas = [ // SE PODRIA HACER ASI "CON ARRAY DE OBJETOS" PERO SE HACE MUY LARGO Y POCO PRACTICO POR ESO CREO "MODELO" (o clase como molde para cada pelicula)
     //   { year: 2021, title: "Spiderman 4: Verse", image: 'https://i2.wp.com/codigoespagueti.com/wp-content/uploads/2021/08/Nueva-e-irresistible-pista-del-Spider-Verse-de-No-Way-Home-aparece-gracias-al-guionista-de-Spider-Man-into-the-Spiderverse.jpg?fit=1280%2C720&quality=80&ssl=1'},
     //   { year: 2018, title: "Los vengadores Endgame", image: 'https://r1.abcimg.es/resizer/resizer.php?imagen=https%3A%2F%2Fstatic4.abc.es%2Fmedia%2Fpeliculas%2F000%2F052%2F759%2Fvengadores-endgame-1.jpg&nuevoancho=690&medio=abc'},
