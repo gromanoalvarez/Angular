@@ -77,6 +77,22 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
          {{user.bio}}</p>
     </div>
 
+    <hr>
+
+    <h2 class="subheader">Eventos</h2>
+    <!-- (click) para cuando hago click -->
+    <button (click)="hasDadoClick()">Evento click</button>
+    <br>
+    <br>
+    <!-- (blur) para cuando entro al campo y luego salgo de un campo  -->
+    <input type="text" [(ngModel)]="campo" (blur)="hasSalido()"  placeholder="Evento blur">
+    {{campo}}
+    <br>
+    <br>
+    <!-- (keyUp) para cuando entro al campo, pulso la tecla y la levanto -->
+    <input type="text" [(ngModel)]="campo2" (keyup.enter)="hasPulsadoEnter()"  placeholder="Evento keyUp detectando en enter">
+    {{campo2}}
+
   </section>
   <app-sidebar></app-sidebar>
 </div>
