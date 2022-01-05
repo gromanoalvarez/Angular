@@ -20,36 +20,55 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
       
       <div class="form-group">
         <label for="nombre">Nombre: {{user.nombre}}</label>
-        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre"/>
+        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre" required pattern="[a-zA-Z]+"/>
+          <!-- Validacion con angular -->
+        <small *ngIf=" !nombre.valid && nombre.touched">
+          El nombre no es válido
+        </small>
       </div>
 
       <div class="form-group">
         <label for="apellidos">Apellidos: {{user.apellidos}}</label>
-        <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" />
+        <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" required pattern="[a-zA-Z]+" />
+        <small *ngIf=" !apellidos.valid && apellidos.touched">
+          Los apellidos no son válidos
+        </small>
       </div>
 
       <div class="form-group">
         <label for="bio">Biografía: {{user.bio}}</label>
-        <textarea name="bio" #bio="ngModel" [(ngModel)]="user.bio"></textarea>
+        <textarea name="bio" #bio="ngModel" [(ngModel)]="user.bio" required ></textarea>
+        <small *ngIf=" !bio.valid && bio.touched">
+          La biografía no es válida
+        </small>
       </div>
 
       <div class="form-group radio-button">
-        <input type="radio" name="genero" value="hombre" #genero="ngModel" [(ngModel)]="user.genero" />Hombre
+        <input type="radio" name="genero" value="hombre" #genero="ngModel" [(ngModel)]="user.genero" required/>Hombre
         <input type="radio" name="genero" value="mujer" [(ngModel)]="user.genero"/>Mujer
         <input type="radio" name="genero" value="otro" [(ngModel)]="user.genero"/>Otro
         <br>
         {{user.genero}}
+        <small *ngIf=" !genero.valid && genero.touched">
+          El género no es válido
+        </small>
 
       </div>
 
       <div class="clearfix"></div>
-      <!--Limpiar floats-->
 
-      <input type="submit" value="Enviar" class="btn btn-success" />
 
+      <!-- La validacion:
+        1ro. se hace con html5 y js a traves de "required" y pattern="[regEx]+"
+        2do. con angular:  <small *ngIf=" !nombre.valid && nombre.touched">
+        3ro en el boton submit que no envie el form si tiene un error con
+        el [disabled]
+      -->
+      <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid" />
     </form>
 
     <div *ngIf="user.nombre">
+       <h2>Vista previa</h2>
        <h3>
         Soy {{user.nombre}} {{user.apellidos}} ({{user.genero}})
        </h3> 
