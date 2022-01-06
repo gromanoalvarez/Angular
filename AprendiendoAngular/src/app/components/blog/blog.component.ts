@@ -14,7 +14,14 @@ export class BlogComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    console.log(this._articleService.pruebas());
+    //subscribe es un metodo del Observable getArticles que permite recoger los datos
+    //que devuelve las peticiones http
+    this._articleService.getArticles().subscribe(
+      {
+        next: (response) => console.log(response),
+        error: (error) => console.log(error)
+      }
+    );
   }
 
 }

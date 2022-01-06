@@ -12,7 +12,7 @@ var md_upload = multipart({ uploadDir: './upload/articles'}); //middleware
 router.post('/datos-curso', ArticleController.datosCurso);
 router.get('/test-de-controlador', ArticleController.test);
 
-// Rutas útiles
+// Rutas útiles (: es ruta obligatorio, ? es ruta opcional)
 router.post('/save', ArticleController.save); // POST para ENVIAR al BACKEND o BD
 router.get('/articles/:last?', ArticleController.getArticles);// GET para SACAR info de la API, ? SIGNIFICA NO OBLIGATORIO
 router.get('/article/:id', ArticleController.getArticle);
