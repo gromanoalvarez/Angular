@@ -301,6 +301,8 @@ textarea{
 }
 .article-item .image-wrap img{
     text-align: center;
+    width: 130px; /*esto ajusta la imagen*/
+    height: 130px;
 }
 .article-item h2{
     display: block;

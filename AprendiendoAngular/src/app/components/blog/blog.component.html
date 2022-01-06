@@ -1,14 +1,31 @@
 <!-- PASAR VARIABLES COMPONENTE PADRE A COMPONENTE HIJO:
 APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
 Con la directivaNombre le paso el homeText(creado en app.component.ts) al componente hijo slider -->
-<app-slider 
-  [directivaNombre]="'Blog'"
-  [size]="'small'"  
-></app-slider>
+<app-slider [directivaNombre]="'Blog'" [size]="'small'"></app-slider>
 
 <div class="center">
   <section id="content">
     <h1 class="subheader">Blog</h1>
+
+    <div id="articles">
+      <!-- Recorro el array de articles y en cada vuelta genero la variable article que los guarde individualmente y luego muestro el titulo de cada uno -->
+      <article class="article-item" *ngFor="let article of articles">
+        <div class="image-wrap">
+          <!-- La imagen necesita de la url para mostrarse por completo,
+           entonces en el componente blog.component.ts traigo la global URL
+          y le concateno la ruta para extraer de la api la imagen -->
+          <img *ngIf="article.image" src="{{ url + 'get-image/'+ article.image }}" alt="{{ article.title }}" />
+          <img *ngIf="!article.image" src="../../../assets/images/DEFAULT.2jpg.png" alt="{{ article.title }}" />
+        </div>
+        <h2>{{ article.title }}</h2>
+        <span class="date">
+          {{ article.date }}
+        </span>
+        <a href="article.html">Leer más</a>
+        <div class="clearfix"></div>
+        <!--LIMPIA-->
+      </article>
+    </div>
   </section>
   <app-sidebar></app-sidebar>
 </div>
