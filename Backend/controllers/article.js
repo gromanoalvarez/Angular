@@ -77,10 +77,9 @@ var controller = {
     },
     getArticles: (req, res) => {
         var query = Article.find({})
-        var last = req.params.last //last es un parametro opcional que puedo ingressar por la route article
-        console.log(last)
+        var last = req.params.last //last es un parametro opcional que puedo ingresar por la route article
         if(last || last != undefined){
-            query.limit(5) //Establece un limite "MUESTRA SOLO 5 ARTICULOS"
+            query.limit(5) //Establece un limite "MUESTRA SOLO ULTIMOS 5 ARTICULOS"
         }
 
         //"MUESTRA TODOS" LOS ARTICLES de la base de datos y SORT -_id lo ORDENA desde el mas nuevo al mas viejo.

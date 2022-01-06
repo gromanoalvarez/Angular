@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; //Para que Peticiones AJAX funcione
 /**
  *
  * Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN
@@ -43,10 +44,11 @@ import { EsParPipe } from './pipes/espar.pipe';
     PeliculaComponent, // NO OLVIDAR, instanciar aqui todos los componentes importados
     EsParPipe,
   ],
-  imports: [
-    BrowserModule, //MÓDULOS QUE QUIERO UTILIZAR
+  imports: [//MÓDULOS QUE QUIERO UTILIZAR:
+    BrowserModule, 
     routing,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [appRoutingProviders], //SERVICIOS
   bootstrap: [AppComponent], //INDICAR CUAL ES EL COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO
