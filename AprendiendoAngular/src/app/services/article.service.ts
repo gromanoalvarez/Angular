@@ -25,8 +25,14 @@ export class ArticleService{
     }
 
     //PRIMERA PETICION AJAX!!! GLOBAL.TS trae url http://localhost:3900/api/
-    getArticles(): Observable<any>{
-        return this._http.get(this.url + 'articles');
-    }
+// se usa la router.get('/articles/:last?', ArticleController.getArticles);// GET para SACAR info de la API, ? SIGNIFICA NO OBLIGATORIO
+    getArticles(last:any = null): Observable<any>{
+        var articles = 'articles';
 
+        if(last != null){
+        var articles = 'articles/true';
+        }
+    return this._http.get(this.url+articles);
+    }
+    // Significa que el parametro last puede tomar cualquier tipo pero inicialmente es un null
 }

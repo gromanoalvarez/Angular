@@ -14,14 +14,13 @@ export class BlogComponent implements OnInit {
   public articles!: Article[];
   public url: string;
 
-  constructor(
-    private _articleService: ArticleService
-  ) { 
+  constructor(private _articleService: ArticleService) { 
     this.url= Global.url;
   }
 
   ngOnInit(): void {
-    //subscribe es un metodo del Observable getArticles que permite recoger los datos
+    // LLAMADA AJAX
+    //subscribe: es un metodo del Observable getArticles que permite recoger los datos
     //que devuelve las peticiones http
     this._articleService.getArticles().subscribe(
       {
