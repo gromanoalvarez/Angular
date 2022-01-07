@@ -1,4 +1,8 @@
-<div id="articles">
+<div clas="loading" *ngIf="!articles">
+  Cargando...
+</div>
+
+<div id="articles" *ngIf="articles">
     <!-- Recorro el array de articles y en cada vuelta genero la variable article que los guarde individualmente y luego muestro el titulo de cada uno -->
     <article class="article-item" *ngFor="let article of articles">
       <div class="image-wrap">
@@ -10,7 +14,8 @@
       </div>
       <h2>{{ article.title }}</h2>
       <span class="date">
-        {{ article.date }}
+        <!-- Estos pipes vienen con la libreria moment instalada -->
+        {{ article.date | amLocale: 'es' | amTimeAgo }}
       </span>
       <a href="article.html">Leer más</a>
       <div class="clearfix"></div>
