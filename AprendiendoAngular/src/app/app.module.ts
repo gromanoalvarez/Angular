@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; //Para que Peticiones AJAX funcione
+import { MomentModule } from 'angular2-moment';
+
 /**
  *
  * Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN
@@ -49,7 +51,8 @@ import { ArticlesComponent } from './components/articles/articles.component';
     BrowserModule, 
     routing,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MomentModule
   ],
   providers: [appRoutingProviders], //SERVICIOS
   bootstrap: [AppComponent], //INDICAR CUAL ES EL COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO
