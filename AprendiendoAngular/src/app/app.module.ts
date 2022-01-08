@@ -30,6 +30,7 @@ import { EsParPipe } from './pipes/espar.pipe';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleComponent } from './components/article/article.component';
 import { SearchComponent } from './components/search/search.component';
+import { ArticleNewComponent } from './components/article-new/article-new.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { SearchComponent } from './components/search/search.component';
     PaginaComponent,
     ErrorComponent,
     PeliculaComponent, // NO OLVIDAR, instanciar aqui todos los componentes importados
-    EsParPipe, ArticlesComponent, ArticleComponent, SearchComponent,
+    EsParPipe, ArticlesComponent, ArticleComponent, SearchComponent, ArticleNewComponent,
   ],
   imports: [//MÓDULOS QUE QUIERO UTILIZAR:
     BrowserModule, 
