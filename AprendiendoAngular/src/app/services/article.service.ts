@@ -58,5 +58,18 @@ export class ArticleService{
         return this._http.post(this.url+'save', params, {headers: headers});
     }
 
+    update(id:any, article:any):Observable<any>{
+        let params = JSON.stringify(article);
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+        // router.put('/article/:id', ArticleController.update); //PUT para ACTUALIZAR
+        return this._http.put(this.url+'articles/'+id, params, {headers:headers});
+    }
+
+    delete(id:any):Observable<any>{
+        let headers = new HttpHeaders().set('Content-Type', 'application/json');
+// router.delete('/article/:id', ArticleController.delete);// DELETE para BORRAR
+        return this._http.delete(this.url+'article/'+id,{headers});
+    }
+
 
 }
