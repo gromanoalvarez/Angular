@@ -265,7 +265,9 @@ body{
     margin-bottom: 5px;
     font-size: 17px;
 }
-input[type="text"],textarea{ /*SELECTOR POR ETIQUETA [ATRIBUTO="VALOR"] pongo , y aplico lo mismo heredo a textarea*/
+input[type="file"],
+input[type="text"],
+textarea{ /*SELECTOR POR ETIQUETA [ATRIBUTO="VALOR"] pongo , y aplico lo mismo heredo a textarea*/
     width: 100%;
     min-height: 30px;
     border: 1px solid #ccc;
