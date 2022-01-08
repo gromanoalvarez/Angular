@@ -17,7 +17,8 @@
         <!-- Estos pipes vienen con la libreria moment instalada -->
         {{ article.date | amLocale: 'es' | amTimeAgo }}
       </span>
-      <a href="article.html">Leer más</a>
+      <!-- del routing uso el path: 'blog/article/:id', component: ArticleComponent -->
+      <a [routerLink]="['/blog/articulo', article._id]">Leer más</a>
       <div class="clearfix"></div>
     </article>
   </div>
