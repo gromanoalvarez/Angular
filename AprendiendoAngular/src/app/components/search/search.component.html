@@ -1,12 +1,13 @@
-<app-slider [directivaNombre]="'Busqueda'" [size]="'small'"></app-slider>
+<app-slider [directivaNombre]="'Busqueda de: ' + search" [size]="'small'"></app-slider>
 
 <div class="center">
   <section id="content">
     <h1 class="subheader">Artículos encontrados</h1>
 
-    <!-- <app-articles
+    <!-- la propiedad de "articles" que tengo cargada en mi componente se la paso en un input [articles] -->
+    <app-articles
       [articles]="articles"
-    ></app-articles> -->
+    ></app-articles>
   </section>
   <app-sidebar></app-sidebar>
 </div>

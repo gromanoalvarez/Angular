@@ -1,5 +1,9 @@
 <div clas="loading" *ngIf="!articles">
-  Cargando...
+Cargando... 
+</div>
+
+<div clas="loading" *ngIf="articles && articles.length == 0">
+No hay artículos relacionados con la búsqueda
 </div>
 
 <div id="articles" *ngIf="articles">
