@@ -15,6 +15,7 @@ import { PeliculasComponent } from "./components/peliculas/peliculas.component";
 import { PaginaComponent } from "./components/pagina/pagina.component";
 import { ErrorComponent } from "./components/error/error.component";
 import { ArticleComponent } from "./components/article/article.component";
+import { SearchComponent } from "./components/search/search.component";
 
 //3.Array de rutas, configuracion de las rutas
 //es una constante que guarda el array de clase Routes que contiene objetos json que son cada ruta
@@ -31,6 +32,9 @@ const appRoutes: Routes = [
     },
     {
         path: 'blog/articulo/:id', component: ArticleComponent
+    },
+    {
+        path: 'buscar/:search', component: SearchComponent
     },
     {
         path: 'formulario', component: FormularioComponent

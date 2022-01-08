@@ -17,28 +17,33 @@ export class ArticleService{
     //como es un servicio su nombre empieza con _
     // ademas SE CARGA EN APP.MODULE.TS dentro de imports como todos los modulos
     // luego en blog se importa, carga en providers y se inicia en el constructor para usarse en  metodo ejemplo onInit
-    this.url = Global.url;
+    this.url = Global.url; 
+    // GLOBAL.TS trae url http://localhost:3900/api/
     }
 
     pruebas(){
         return "Soy el servicio de artículos";
     }
 
-    //PRIMERA PETICION AJAX!!! GLOBAL.TS trae url http://localhost:3900/api/
-// se usa la router.get('/articles/:last?', ArticleController.getArticles);// GET para SACAR info de la API, ? SIGNIFICA NO OBLIGATORIO
+    //1ra PETICION AJAX!!! usando el servicio _http y su metodo get();
     getArticles(last:any = null): Observable<any>{
+            // Significa que el parametro last puede tomar cualquier tipo pero inicialmente es un null
         var articles = 'articles';
 
         if(last != null){
         var articles = 'articles/true';
         }
-    return this._http.get(this.url+articles);
+    return this._http.get(this.url+articles); // usamos la ruta backend router.get('/articles/:last?', ArticleController.getArticles);
     }
-    // Significa que el parametro last puede tomar cualquier tipo pero inicialmente es un null
 
+    //2da PETICION AJAX
     getArticle(articleId:any): Observable<any>{
-        return this._http.get(this.url+'article/'+articleId)
+        return this._http.get(this.url+'article/'+articleId);
     }
 
-
+    //3ra PETICION AJAX
+    // usamos la ruta de backend router.get('/search/:search', ArticleController.search)
+    search(searchString:string): Observable<any>{
+        return this._http.get(this.url+'search/'+searchString);
+    }
 }
