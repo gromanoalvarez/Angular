@@ -233,6 +233,7 @@ var controller = {
         }else{
              // Si todo es valido, sacando id de la url
              var articleId = req.params.id;
+             
              if(articleId){
                 // BUSCA Y ACTUALIZA el articulo, asignarle el nombre de la imagen 
                 Article.findOneAndUpdate({_id: articleId}, {image: file_name}, {new:true}, (err, articleUpdated) => {

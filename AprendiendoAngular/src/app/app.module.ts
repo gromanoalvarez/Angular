@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; //Para que Peticiones AJAX funcione
 import { MomentModule } from 'angular2-moment';
+import { AngularFileUploaderModule } from "angular-file-uploader";
+
+import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
 
 /**
  *
@@ -26,11 +27,12 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { PaginaComponent } from './components/pagina/pagina.component';
 import { ErrorComponent } from './components/error/error.component';
 import { PeliculaComponent } from './components/pelicula/pelicula.component';
-import { EsParPipe } from './pipes/espar.pipe';
 import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleComponent } from './components/article/article.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArticleNewComponent } from './components/article-new/article-new.component';
+
+import { EsParPipe } from './pipes/espar.pipe';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,8 @@ import { ArticleNewComponent } from './components/article-new/article-new.compon
     routing,
     FormsModule,
     HttpClientModule,
-    MomentModule
+    MomentModule,
+    AngularFileUploaderModule
   ],
   providers: [appRoutingProviders], //SERVICIOS
   bootstrap: [AppComponent], //INDICAR CUAL ES EL COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO

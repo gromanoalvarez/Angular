@@ -3,33 +3,52 @@
     <h1 class="subheader">Crear artículo</h1>
 
     <form class="mid-form" #articleForm="ngForm" (ngSubmit)="onSubmit()">
-      
       <div class="form-group">
         <label for="title">Título</label>
-        <input type="text" name="title" #title="ngModel" [(ngModel)]="article.title" required />
-        <small *ngIf=" !title.valid && title.touched">
+        <input
+          type="text"
+          name="title"
+          #title="ngModel"
+          [(ngModel)]="article.title"
+          required
+        />
+        <small *ngIf="!title.valid && title.touched">
           El Título no es válido
         </small>
       </div>
 
       <div class="form-group">
         <label for="content">Contenido</label>
-        <textarea name="content" #content="ngModel" [(ngModel)]="article.content" required ></textarea>
-        <small *ngIf=" !content.valid && content.touched">
+        <textarea
+          name="content"
+          #content="ngModel"
+          [(ngModel)]="article.content"
+          required
+        ></textarea>
+        <small *ngIf="!content.valid && content.touched">
           El contenido no es válido
         </small>
       </div>
 
       <div class="form-group">
-        <label for="image">Imagen</label>
-        <input type="file" name="file0"/>
+        <!-- [config]="afuConfig" Configuracion del boton de carga que se desarrolla en el componente.ts -->
+        <!-- (ApiResponse)="imageUpload($event)">  EVENTO cuando se envia el doc a la API como response y me llama al metodo imageUpload-->
+
+        <angular-file-uploader 
+          [config]="afuConfig"
+          (ApiResponse)="imageUpload($event)">
+        ></angular-file-uploader>
       </div>
 
       <div class="clearfix"></div>
 
-      <input type="submit" value="Guardar" class="btn btn-success" [disabled]="articleForm.invalid" />
+      <input
+        type="submit"
+        value="Guardar"
+        class="btn btn-success"
+        [disabled]="articleForm.invalid"
+      />
     </form>
   </section>
   <app-sidebar></app-sidebar>
 </div>
-
