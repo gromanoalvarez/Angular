@@ -46,4 +46,17 @@ export class ArticleService{
     search(searchString:string): Observable<any>{
         return this._http.get(this.url+'search/'+searchString);
     }
+
+    //4to Llamada http a la API REST para guardar los nuevos articulos
+    create(article:Article): Observable<any>{
+        // POR HTTP todo lo que envio debe ser numerico o string!! 
+        //por eso uso stringify convierte mi objeto literal en JSON string
+        let params = JSON.stringify(article);
+        //Cabecera para configurar el Content-type que sea application/json para el backend
+        let headers = new HttpHeaders().set('Content-type', 'application/json');
+        //llamada ajax a la ruta save por post (para guardar info en el backend)
+        return this._http.post(this.url+'save', params, {headers: headers});
+    }
+
+
 }
