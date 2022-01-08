@@ -171,12 +171,27 @@ body{
     transition: 300ms all;
     border: none;
     cursor: pointer;
+    text-align: center;
 }
 .btn-success{
     background-color: rgb(23, 150,19);
 }
-.btn-success:hover{/*HOVER es para cuando PASO POR ENCIMA EL RATON*/
+.btn-success:hover{
     background-color: black;
+}
+.btn-warning{
+    background-color: orange;
+    color: white !important;
+    text-decoration: none;
+}
+.btn-danger{
+    background-color: red;
+    color: white !important;
+    text-decoration: none;
+}
+.btn-warning:hover, btn-danger:hover{
+    transition: all 300ms;
+    opacity: 0.8;
 }
 .mid-form{
     width: 50%;

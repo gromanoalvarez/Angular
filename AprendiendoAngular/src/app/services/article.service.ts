@@ -35,4 +35,10 @@ export class ArticleService{
     return this._http.get(this.url+articles);
     }
     // Significa que el parametro last puede tomar cualquier tipo pero inicialmente es un null
+
+    getArticle(articleId:any): Observable<any>{
+        return this._http.get(this.url+'article/'+articleId)
+    }
+
+
 }

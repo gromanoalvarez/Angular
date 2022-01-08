@@ -228,12 +228,30 @@ body{
     transition: 300ms all;
     border: none;
     cursor: pointer;
+    text-align: center;
+}
+.buttons{
+    margin-top: 30px;
 }
 .btn-success{
     background-color: rgb(23, 150,19);
 }
-.btn-success:hover{/*HOVER es para cuando PASO POR ENCIMA EL RATON*/
+.btn-success:hover{
     background-color: black;
+}
+.btn-warning{
+    background-color: orange;
+    color: white !important;
+    text-decoration: none;
+}
+.btn-danger{
+    background-color: red;
+    color: white !important;
+    text-decoration: none;
+}
+.btn-warning:hover, .btn-danger:hover{
+    transition: all 300ms;
+    opacity: 0.6;
 }
 .mid-form{
     width: 50%;
@@ -338,7 +356,7 @@ textarea{
 }
 .article-detail .image-wrap img{
     width: 100%; /*En este caso priorizo que ocupe todo le ancho*/
-    height: auto; /*Con uno de los 2 parametros en auto se queda a proporción la imagen*/
+    height: 100%; /*Con uno de los 2 parametros en auto se queda a proporción la imagen*/
 }
 .article-detail .subheader{
     margin-top: 15px;

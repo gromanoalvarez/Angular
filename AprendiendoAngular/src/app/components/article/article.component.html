@@ -1,28 +1,35 @@
 <div class="center">
   <section id="content">
-
     <article class="article-item article-detail">
-        <div class="image-wrap">
-            <img src="assets/images/imagesred.jpg" alt="Paisaje">
-        </div>
+      <div class="image-wrap">
+        <img
+          *ngIf="article.image"
+          src="{{ url + 'get-image/' + article.image }}"
+          alt="{{ article.title }}"
+        />
+        <img
+          *ngIf="!article.image"
+          src="../../../assets/images/DEFAULT.2jpg.png"
+          alt="{{ article.title }}"
+        />
+      </div>
 
-        <h1 class="subheader">Artículo de prueba</h1>
-        <span class="date"> <!--FECHA-->
-            Hace 5 minutos
-        </span>
+      <h1 class="subheader">{{ article.title }}</h1>
+      <span class="date">
+        {{ article.date | amLocale: "es" | amTimeAgo }}
+      </span>
 
-        <p>
-            Un Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores non ex ab eligendi doloremque odit earum aperiam iusto, ea reprehenderit quia quos consequuntur perspiciatis architecto eum accusantium excepturi assumenda eius.
-        </p>
-        <p>
-            Dos Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores non ex ab eligendi doloremque odit earum aperiam iusto, ea reprehenderit quia quos consequuntur perspiciatis architecto eum accusantium excepturi assumenda eius.
-        </p>
-        <p>
-            Tres Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores non ex ab eligendi doloremque odit earum aperiam iusto, ea reprehenderit quia quos consequuntur perspiciatis architecto eum accusantium excepturi assumenda eius.
-        </p>
-        <div class="clearfix"></div> <!--LIMPIAR-->
+      <p>
+        {{ article.content }}
+      </p>
+
+      <div class="buttons">
+          <a class="btn btn-warning">Editar</a>
+          <a class="btn btn-danger">Borrar</a>
+      </div>
+
+      <div class="clearfix"></div>
     </article>
-
   </section>
   <app-sidebar></app-sidebar>
 </div>
