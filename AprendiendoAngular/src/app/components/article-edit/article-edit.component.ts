@@ -3,20 +3,19 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 import { Global } from 'src/app/services/global';
-import { ArticleEditComponent } from '../article-edit/article-edit.component';
 
 @Component({
-  selector: 'app-article-new',
-  templateUrl: './article-new.component.html',
-  styleUrls: ['./article-new.component.css'],
+  selector: 'app-article-edit',
+  templateUrl: '../article-new/article-new.component.html', //uso la misma vista que cuando creo un nuevo articulo
+  styleUrls: ['./article-edit.component.css'],
   providers: [ArticleService],
 })
-export class ArticleNewComponent implements OnInit {
+export class ArticleEditComponent implements OnInit {
   public article!: Article;
   public status!: string;
-  public pageTitle : string;
+  public isEdit: boolean;
+  public pageTitle: string;
   public url: string;
-
 
   // Configura la libreria https://www.npmjs.com/package/angular-file-uploader
   afuConfig = {
@@ -24,7 +23,7 @@ export class ArticleNewComponent implements OnInit {
     formatsAllowed: '.jpg,.png,.gif,.jpeg',
     uploadAPI: {
       // la url de la imgen utiliza router.post('/upload-image/:id?', md_upload, ArticleController.upload); //utilizo middleware multipart para form-data
-      url: Global.url + 'upload-image/'
+      url: Global.url + 'upload-image/',
     },
     theme: 'attachPin',
     hideProgressBar: true,
@@ -38,8 +37,8 @@ export class ArticleNewComponent implements OnInit {
       attachPinBtn: 'Sube tu imagen para el artículo...',
       afterUploadMsg_success: 'Successfully Uploaded !',
       afterUploadMsg_error: 'Upload Failed !',
-      sizeLimit: 'Size Limit'
-    }
+      sizeLimit: 'Size Limit',
+    },
   };
 
   constructor(
@@ -48,35 +47,26 @@ export class ArticleNewComponent implements OnInit {
     private _articleService: ArticleService
   ) {
     this.article = new Article('', '', '', null, '');
-    this.pageTitle = 'Crear artículo';
-    this.url = Global.url;
+    this.isEdit = true;
+    this.pageTitle = 'Editar artículo';
+    this.url= Global.url;
   }
-  //   me baso en :
-  //export class Article{
-  //     constructor(
-  //         public _id: string,
-  //         public title: string,
-  //         public content: string,
-  //         public date: any,
-  //         public image: string
-  //         ){
-  //     }
-  // }
 
   ngOnInit(): void {
+    this.getArticle();
   }
 
   onSubmit() {
-    //con el servicio utilizo mi metodo create que desarrolle dentro del mismo servicio
+    //con el servicio utilizo mi metodo UPDATE que desarrolle dentro del mismo servicio
     //con subscribe() para recoger el observable
-    this._articleService.create(this.article).subscribe({
+    this._articleService.update(this.article._id, this.article).subscribe({
       //si hay respuesta positiva
       next: (response) => {
         if (response.status == 'success') {
           this.status = 'success';
           this.article = response.article;
           //PARA HACER LA REDIRECCION debo importar Router y activatedroute y iniciarlos en constructor
-          this._router.navigate(['/blog']);
+          this._router.navigate(['/blog/articulo', this.article._id]);
         } else {
           this.status = 'error';
         }
@@ -88,10 +78,30 @@ export class ArticleNewComponent implements OnInit {
     });
   }
 
-  imageUpload(data:any){
-    this.article.image=data.body.image;
+  imageUpload(data: any) {
+    this.article.image = data.body.image;
   }
 
+  //Para VER EL CONTENIDO DEL ARTICULO A EDITAR:
+  getArticle() {
+    //CAPTURO EL ID DE LA URL
+    this._route.params.subscribe((params) => {
+      let id = params['id'];
 
+      //DAME EL ARTICULO QUE TIENE MISMA ID EN LA BASE DE DATOS
+      this._articleService.getArticle(id).subscribe({
+        next: (response) => {
+          if (response.article) {
+            this.article = response.article;
+          } else {
+            this._router.navigate(['/home']);
+          }
+        },
+        error: (error) => {
+          this._router.navigate(['/home']);
+        },
+      });
+    });
+  }
 
 }

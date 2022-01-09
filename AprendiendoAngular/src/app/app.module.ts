@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; //Para que Peticiones AJAX funcione
 import { MomentModule } from 'angular2-moment';
-import { AngularFileUploaderModule } from "angular-file-uploader";
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
 
@@ -31,6 +31,7 @@ import { ArticlesComponent } from './components/articles/articles.component';
 import { ArticleComponent } from './components/article/article.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArticleNewComponent } from './components/article-new/article-new.component';
+import { ArticleEditComponent } from './components/article-edit/article-edit.component';
 
 import { EsParPipe } from './pipes/espar.pipe';
 
@@ -50,15 +51,21 @@ import { EsParPipe } from './pipes/espar.pipe';
     PaginaComponent,
     ErrorComponent,
     PeliculaComponent, // NO OLVIDAR, instanciar aqui todos los componentes importados
-    EsParPipe, ArticlesComponent, ArticleComponent, SearchComponent, ArticleNewComponent,
+    EsParPipe,
+    ArticlesComponent,
+    ArticleComponent,
+    SearchComponent,
+    ArticleNewComponent,
+    ArticleEditComponent,
   ],
-  imports: [//MÓDULOS QUE QUIERO UTILIZAR:
-    BrowserModule, 
+  imports: [
+    //MÓDULOS QUE QUIERO UTILIZAR:
+    BrowserModule,
     routing,
     FormsModule,
     HttpClientModule,
     MomentModule,
-    AngularFileUploaderModule
+    AngularFileUploaderModule,
   ],
   providers: [appRoutingProviders], //SERVICIOS
   bootstrap: [AppComponent], //INDICAR CUAL ES EL COMPONENTE PRINCIPAL QUE VA A ENTRAR A ESTE MÓDULO

@@ -1,6 +1,7 @@
 <div class="center">
   <section id="content">
-    <h1 class="subheader">Crear artículo</h1>
+
+    <h1 class="subheader">{{ pageTitle }}</h1>
 
     <form class="mid-form" #articleForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
@@ -31,9 +32,21 @@
       </div>
 
       <div class="form-group">
+        <!-- Si esta activa la edicion entonces mostrame la mini imagen  -->
+        <div class="image-thumb" *ngIf="no daaaaaaaaaaaaaaaaaaaaaaaaa">
+            <img
+              *ngIf="article.image"
+              src="{{ url + 'get-image/' + article.image }}"
+              alt="{{ article.title }}"
+            />
+            <img
+              *ngIf="!article.image"
+              src="../../../assets/images/DEFAULT.2jpg.png"
+              alt="{{ article.title }}"
+            />
+        </div>
         <!-- [config]="afuConfig" Configuracion del boton de carga que se desarrolla en el componente.ts -->
         <!-- (ApiResponse)="imageUpload($event)">  EVENTO cuando se envia el doc a la API como response y me llama al metodo imageUpload-->
-
         <angular-file-uploader 
           [config]="afuConfig"
           (ApiResponse)="imageUpload($event)">
