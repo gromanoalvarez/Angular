@@ -1,6 +1,6 @@
 Master en Frameworks Js:
-Angular. React. Vue.
-(MEAN Stack. MERN Stack. MEVN Stack)
+Angular. 
+(MEAN Stack.)
 
 Desarrollo frontend y backend:
 1. Maquetación de sitios web con CSS3 y HTML5.
