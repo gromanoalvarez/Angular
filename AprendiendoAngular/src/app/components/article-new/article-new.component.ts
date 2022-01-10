@@ -16,6 +16,7 @@ export class ArticleNewComponent implements OnInit {
   public status!: string;
   public pageTitle : string;
   public url: string;
+  public isEdit :boolean;
 
 
   // Configura la libreria https://www.npmjs.com/package/angular-file-uploader
@@ -49,6 +50,7 @@ export class ArticleNewComponent implements OnInit {
   ) {
     this.article = new Article('', '', '', null, '');
     this.pageTitle = 'Crear artículo';
+    this.isEdit = false;
     this.url = Global.url;
   }
   //   me baso en :

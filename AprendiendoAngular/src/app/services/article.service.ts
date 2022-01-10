@@ -61,7 +61,7 @@ export class ArticleService {
     let params = JSON.stringify(article);
     let headers = new HttpHeaders().set('Content-Type', 'application/json');
     //PETICION AJAX POR PUT router.put('/article/:id', ArticleController.update); PUT para ACTUALIZAR
-    return this._http.put(this.url + 'articles/' + id, params, {
+    return this._http.put(this.url + 'article/' + id, params, {
       headers: headers,
     });
   }

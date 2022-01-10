@@ -24,7 +24,6 @@ export class HomeComponent implements OnInit {
         next: (response) => {
           if(response.articles){
           this.articles = response.articles;
-          console.log(this.articles);
           }
         },
         error: (error) => console.log(error)
