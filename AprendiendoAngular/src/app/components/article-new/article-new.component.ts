@@ -3,7 +3,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 import { Global } from 'src/app/services/global';
-import { ArticleEditComponent } from '../article-edit/article-edit.component';
+import swal from 'sweetalert';
+
 
 @Component({
   selector: 'app-article-new',
@@ -14,10 +15,9 @@ import { ArticleEditComponent } from '../article-edit/article-edit.component';
 export class ArticleNewComponent implements OnInit {
   public article!: Article;
   public status!: string;
-  public pageTitle : string;
+  public pageTitle: string;
   public url: string;
-  public isEdit :boolean;
-
+  public isEdit: boolean;
 
   // Configura la libreria https://www.npmjs.com/package/angular-file-uploader
   afuConfig = {
@@ -25,7 +25,7 @@ export class ArticleNewComponent implements OnInit {
     formatsAllowed: '.jpg,.png,.gif,.jpeg',
     uploadAPI: {
       // la url de la imgen utiliza router.post('/upload-image/:id?', md_upload, ArticleController.upload); //utilizo middleware multipart para form-data
-      url: Global.url + 'upload-image/'
+      url: Global.url + 'upload-image/',
     },
     theme: 'attachPin',
     hideProgressBar: true,
@@ -39,8 +39,8 @@ export class ArticleNewComponent implements OnInit {
       attachPinBtn: 'Sube tu imagen para el artículo...',
       afterUploadMsg_success: 'Successfully Uploaded !',
       afterUploadMsg_error: 'Upload Failed !',
-      sizeLimit: 'Size Limit'
-    }
+      sizeLimit: 'Size Limit',
+    },
   };
 
   constructor(
@@ -65,8 +65,7 @@ export class ArticleNewComponent implements OnInit {
   //     }
   // }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onSubmit() {
     //con el servicio utilizo mi metodo create que desarrolle dentro del mismo servicio
@@ -77,6 +76,14 @@ export class ArticleNewComponent implements OnInit {
         if (response.status == 'success') {
           this.status = 'success';
           this.article = response.article;
+
+          //Alerta con https://sweetalert.js.org/guides/
+          swal(
+            'Artículo creado',
+            'El artículo se ha creado correctamente',
+            'success'
+          );
+
           //PARA HACER LA REDIRECCION debo importar Router y activatedroute y iniciarlos en constructor
           this._router.navigate(['/blog']);
         } else {
@@ -90,10 +97,7 @@ export class ArticleNewComponent implements OnInit {
     });
   }
 
-  imageUpload(data:any){
-    this.article.image=data.body.image;
+  imageUpload(data: any) {
+    this.article.image = data.body.image;
   }
-
-
-
 }

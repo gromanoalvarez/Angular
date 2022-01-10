@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Article } from 'src/app/models/article';
 import { ArticleService } from 'src/app/services/article.service';
 import { Global } from 'src/app/services/global';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-article-edit',
@@ -65,6 +66,14 @@ export class ArticleEditComponent implements OnInit {
         if (response.status == 'success') {
           this.status = 'success';
           this.article = response.article;
+
+          //Alerta con https://sweetalert.js.org/guides/
+          swal(
+            'Artículo editado',
+            'El artículo se ha editado correctamente',
+            'success'
+          );
+
           //PARA HACER LA REDIRECCION debo importar Router y activatedroute y iniciarlos en constructor
           this._router.navigate(['/blog/articulo', this.article._id]);
         } else {
@@ -74,6 +83,12 @@ export class ArticleEditComponent implements OnInit {
       error: (error) => {
         console.log(error);
         this.status = 'error';
+          //Alerta con https://sweetalert.js.org/guides/
+          swal(
+            'Falla en la edición',
+            'El artículo no se ha editado',
+            'error'
+          );
       },
     });
   }
