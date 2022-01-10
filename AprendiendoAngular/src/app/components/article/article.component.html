@@ -25,7 +25,7 @@
 
       <div class="buttons">
           <a [routerLink]="['/blog/editar', article._id]" class="btn btn-warning">Editar</a>
-          <a class="btn btn-danger">Borrar</a>
+          <a (click)="delete(article._id)" class="btn btn-danger">Borrar</a>
       </div>
 
       <div class="clearfix"></div>
