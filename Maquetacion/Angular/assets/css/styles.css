@@ -28,7 +28,22 @@ body{
     height: 60px;
     margin-top: -9px;
     margin-right: 5px;
-    animation: latir infinite 2s linear; /*"latir" es el nombre que le pongo a la animacion, infinito es que lo haga por tiempo indefinido, linear que sea continuo*/
+    -webkit-animation: latir infinite 2s linear;
+            animation: latir infinite 2s linear; /*"latir" es el nombre que le pongo a la animacion, infinito es que lo haga por tiempo indefinido, linear que sea continuo*/
+}
+@-webkit-keyframes latir{ /*Significa que creamos la animacion latir */
+    0% { /*Desde que empieza o podria ser 10% x ej */
+        transform: scale(1, 1);
+    }
+    50% { /*Hasta que termina o podria poner 100% x ej */
+        transform: scale(1.02, 1.02);
+    }
+    55% {
+        transform: scale(0.95, 0.95);
+    }
+    100% {
+        transform: scale(1, 1);
+    }
 }
 @keyframes latir{ /*Significa que creamos la animacion latir */
     0% { /*Desde que empieza o podria ser 10% x ej */
@@ -91,11 +106,6 @@ body{
     color:black;
     text-shadow: 0px 0px 5px #444; /*sombreado de texto*/
     background: rgb(181, 33, 7);
-    background: -moz-radial-gradient(center, ellipse cover, rgb(181, 33, 7) 0%, rgb(181, 33, 7) 0%, rgb(181, 33, 7) 66%, rgb(181, 33, 7) 100%);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(248,80,50,1)), color-stop(0%, rgba(241,111,92,1)), color-stop(66%, rgba(230,31,5,1)), color-stop(100%, rgba(231,56,39,1)));
-    background: -webkit-radial-gradient(center, ellipse cover, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(230,31,5,1) 66%, rgba(231,56,39,1) 100%);
-    background: -o-radial-gradient(center, ellipse cover, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(230,31,5,1) 66%, rgba(231,56,39,1) 100%);
-    background: -ms-radial-gradient(center, ellipse cover, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(230,31,5,1) 66%, rgba(231,56,39,1) 100%);
     background: radial-gradient(ellipse at center, rgba(248,80,50,1) 0%, rgba(241,111,92,1) 0%, rgba(230,31,5,1) 66%, rgba(231,56,39,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=1 );
 }

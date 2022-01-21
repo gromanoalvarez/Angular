@@ -1,21 +1,3 @@
-
-/**
- *          ESTE ES UN COMPONENTE (manualmente generando el fichero)
- *  .component indica la clase del componente
- *  .ts que corre con typeScript
- * 
- *  Todo dentro de Angular es una Directiva
- * 
- * {{ BINDING por INTERPOLACIÓN }}
- * Para "mostrar un dato", una "union de una propiedad a la vista" y mostrar mediante las llaves 
- * 
- * 
- * Cuando se está desarrollando una aplicación utilizamos 
- *          ANGULAR CLI         para crear los componentes 
- * Con un simple comando podemos generar un componente haciendolo más rápido de manera automática
- * 
- */
-
 import { Component } from '@angular/core'; // importo gracias a lo instalado previamente
 
 @Component({ // Para indicar las PROPIEDADES o características de este componente

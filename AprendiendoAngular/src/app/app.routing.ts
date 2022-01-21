@@ -1,11 +1,5 @@
-/**
- * app.routing.ts sirve para
- //1.Importar los módulos del router de angular
- *  y crear rutas para moverse a traves de
- la url 
- *  */  
-import { ModuleWithProviders  } from "@angular/core"; //Esta clase importada permite generar un modulo para tenerlo todo separado y cargarlo  dentro del framework 
-import { Routes, RouterModule } from '@angular/router'; //Permitir generar objetos de rutas y el modulo para configurar el frameworks de angular
+import { ModuleWithProviders  } from "@angular/core";  
+import { Routes, RouterModule } from '@angular/router'; 
 
 //2.Importar COMPONENTES COMO PÁGINA EXCLUSIVA
 import { HomeComponent } from "./components/home/home.component";
@@ -20,8 +14,6 @@ import { ArticleNewComponent } from "./components/article-new/article-new.compon
 import { ArticleEditComponent } from "./components/article-edit/article-edit.component";
 
 //3.Array de rutas, configuracion de las rutas
-//es una constante que guarda el array de clase Routes que contiene objetos json que son cada ruta
-//la ruta vacia es la predeterminada cuando carga la pagina
 const appRoutes: Routes = [
     {
         path: '', component: HomeComponent
@@ -50,22 +42,16 @@ const appRoutes: Routes = [
     {
         path: 'peliculas', component: PeliculasComponent
     },
-    {//B)TRANSFORMA PARAMETRO OPCIONAL: Creando una ruta "ANTES" que sea similar pero sin parametro extra
+    {
         path: 'pagina-de-pruebas', component: PaginaComponent
     },    
-    {//A)los : declaran PARAMETRO FIJO, si no lo pongo me tira a errorComponent
+    {
         path: 'pagina-de-pruebas/:nombres/:apellidos', component: PaginaComponent
     },
     {
         path: '**', component: ErrorComponent
     }
 ];
-//(el path de error ** debe ir si o si al final)
-
-//Exportar el modulo de rutas:
-
-//Para establecer el router vacio para usarlo como servicio
 export const appRoutingProviders: any[] = [];
-//Cargar la configuracion de rutas
 export const routing: ModuleWithProviders<any> = RouterModule.forRoot(appRoutes);
 

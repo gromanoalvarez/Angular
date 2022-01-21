@@ -26,6 +26,13 @@
  * in this directory (for example: zone-flags.ts), and put the following flags
  * into that file, and then add the following code before importing zone.js.
  * import './zone-flags';
+    * * De forma predeterminada, zone.js parcheará todas las macroTask y DomEvents posibles
+    * el usuario puede deshabilitar partes del parche macroTask/DomEvents configurando las siguientes banderas
+    * porque esos indicadores deben configurarse antes de que se cargue `zone.js`, y el paquete web
+    * colocará la importación en la parte superior del paquete, por lo que el usuario debe crear un archivo separado
+    * en este directorio (por ejemplo: zone-flags.ts), y coloque las siguientes banderas
+    * en ese archivo y luego agregue el siguiente código antes de importar zone.js.
+    * import './zone-flags';
  *
  * The flags allowed in zone-flags.ts are listed here.
  *

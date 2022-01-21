@@ -7,12 +7,6 @@ import { AngularFileUploaderModule } from 'angular-file-uploader';
 
 import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
 
-/**
- *
- * Permite cargar configuraciones para el MÓdulo. IMPORTA EL COMPONENTE A CUALQUIER PARTE DE MI APLICACIóN
- * es una BUENA PRACTICA con el nombre de mis componentes usar sufijos "component"
- */
-
 import { AppComponent } from './app.component'; //LO QUE SE DEBE PONER EN "declarations:[AppComponent]"
 import { MiComponente } from './components/mi-componente/mi-componente.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
