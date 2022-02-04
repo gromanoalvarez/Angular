@@ -29,21 +29,24 @@ body {
   background: white;
 }
 #logo {
-  width: 30%;
-  font-size: 30px;
+  max-width: 100%;
+  font-size: 22px;
   float: left;
   margin-top: 35px;
+  text-align: center;
+  justify-content: center;
 }
+
 
 #logo img {
   display: block; /*Asi se puede meter margin y float*/
   float: left;
   height: 60px;
-  margin-top: -9px;
-  margin-right: 5px;
+margin: auto;
   -webkit-animation: latir infinite 2s linear;
           animation: latir infinite 2s linear; /*"latir" es el nombre que le pongo a la animacion, infinito es que lo haga por tiempo indefinido, linear que sea continuo*/
 }
+
 @-webkit-keyframes latir {
   /*Significa que creamos la animacion latir */
   0% {
@@ -110,13 +113,16 @@ body {
   color: #444;
   font-weight: bolder;
   transition: 300ms all; /*transicion al hover */
+  font-size: medium;
 }
 #menu a:hover,
 .active {
   -webkit-text-decoration: underline solid 4px red;
           text-decoration: underline solid 4px red;
+
 }
 .active {
+  border: 2px solid #f13e3e ;
   color: #f13e3e !important ; /* !IMPORTANT para que sea lo prioritario*/
 }
 .clearfix {
@@ -125,6 +131,8 @@ body {
 }
 #slider,
 slider-big {
+  overflow-y: hidden;
+  position: relative;
   width: 100%;
   height: 700px;
   /* line-height: 320px; */
@@ -149,8 +157,8 @@ slider-big {
   font-size: xx-large;
   font-family: "Pushster", cursive;
   position: absolute;
-  bottom: -2em;
-  right: 5%;
+  bottom: 0px;
+  right: 5px;
 }
 #slider a span {
   font-size: small;
@@ -190,7 +198,7 @@ slider-big {
   display: block;
   background: gold;
   color: firebrick;
-  padding: 10px;
+  padding: 0px;
   width: 200px;
   height: 400px;
   margin: 0px auto; /*para centrarlo */
@@ -202,6 +210,7 @@ slider-big {
   box-shadow: 5px 5px 10px rgb(66, 66, 66);
   border-radius: 0px 0px 10px 10px;
   transition: 300ms all; /*tiempo de transición con el hover*/
+  z-index: -5;
 }
 .btn-white:hover {
   background: #000;
@@ -503,7 +512,7 @@ textarea {
     width: 70%;
   }
 }
-@media (max-width: 800) {
+@media (max-width: 497px) {
   /*Desde 0 hasta 497px*/
   .center {
     width: 100%;
@@ -513,13 +522,17 @@ textarea {
     width: 15%;
     display: inline;
   }
+  #logo{
+    text-align: center;
+  }
   #logo span {
-    width: 80%;
+    width: 100%;
     display: inline;
+    text-align: center;
   }
   #logo img {
+    display: none;
     margin: -10px;
-    display: inline-block;
   }
   #header {
     min-height: 130px;
@@ -527,10 +540,14 @@ textarea {
   }
   #menu {
     width: 100%;
+
+  }
+  #menu a{
+    font-size:0.7em !important;
   }
   #menu ul li {
-    margin-left: 7px;
-    margin-right: 7px;
+    margin-left: 5px;
+    margin-right: 5px;
   }
   #slider {
     height: 180px;
@@ -538,6 +555,9 @@ textarea {
   #slider h1 {
     font-size: 19px;
     padding-top: 30px;
+  }
+  #slider h2 {
+    color: blue !important;
   }
   #slider .btn-white {
     margin-top: 20px;
