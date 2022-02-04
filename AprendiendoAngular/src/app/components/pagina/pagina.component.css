@@ -1,0 +1,16 @@
+button{
+    margin-top: 3em;
+    padding: 5em 5em 1em 5em;
+    font-family: fantasy;
+    color: blue;
+    background-color: rgb(255, 0, 0);
+    border:none;
+    background-repeat: no-repeat;
+    background-size: contain;
+    font-size: x-large;
+}
+button:hover{
+    color: rgb(255, 0, 0);
+    background-color: blue;
+    cursor: pointer ;
+}
