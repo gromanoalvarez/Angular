@@ -35,7 +35,7 @@ export class PaginaComponent implements OnInit {
     //this._router.navigate(['/formulario']);
     
     //sino tambien puedo pasar incluso dentro de la misma pagina parametros
-    this._router.navigate(['pagina-de-pruebas', 'Ger', 'Roma']);
+    this._router.navigate(['pagina-de-pruebas', 'CompletarNombresEnURL', 'CompletarLosApellidosEnURL']);
   }
 
 }

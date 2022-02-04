@@ -1,6 +1,3 @@
-<!-- PASAR DESDE COMPONENTE PADRE A COMPONENTE HIJO:
-APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
-Con la directivaNombre le paso el homeText(creado en app.component.ts) al componente hijo slider -->
 <app-slider [directivaNombre]="'Películas'" [size]="'small'"></app-slider>
 
 <div class="center">
@@ -8,12 +5,6 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
 
     <div id="favorita" *ngIf="favorita">
       <h2 class="subheader">Mi Película Favorita actualmente es:</h2>
-
-      <!-- PIPES (tuberias)
-         {{ ValorDelDato | nombreDelPipe }} 
-         son pequeñas funciones para usar en la vista,
-         vienen por defecto (https://angular.io/api/core/Pipe)
-         o las puedo crear-->
       <h4>
          {{ favorita.title | uppercase }}  <!--o lowercase -->
       </h4>
@@ -28,46 +19,14 @@ Con la directivaNombre le paso el homeText(creado en app.component.ts) al compon
      </h5>
     </div>
 
-    <h1 class="subheader">Películas</h1>
-<!--
-  <h2>{{ titulo }}</h2>
-    <p>
-      Esta es la VISTA del componente PELÍCULAS.component.html <br />
-      y mi tÍtulo fue cargado con Binding por Interpolación
-    </p>
-    Evento click ingresado manualmente, que convoca al metodo cambiarTitulo() que se encuentra dentro del component.ts
-    <button (click)="cambiarTitulo()">Cambiar Título</button>
 
-    <hr />
-
-    <h2>Mostrar primera película</h2>
-    {{ peliculas[0].title }}
-
-    <hr />
-
-    <h2>Número de películas</h2>
-
-    DIRECTIVA CONDICIONAL es un atributo de un elemento html que agrega una funcionalidad extra
-    <div *ngIf="peliculas.length <= 3">Hay pocas películas:</div>
-    <div *ngIf="peliculas.length > 3">Hay muchas películas:</div>
-    {{ peliculas.length }}
-
-    <hr />
-    <h2 class="subheader">Listado de películas</h2>
-
-  -->
     <div id="articles" *ngIf="peliculas">
-                <!--DIRECTIVA ngFor
-            Para listar todos los elementos del array.
-            Recorre el array PELICULAS y "por cada vuelta CREA la variable LET PELI" que usare para sacar los valores deseados
-            y tambien crea la variable LET I para las posiciones del array-->
           <div *ngFor="let pelicula of peliculas; let i = index">
             <app-pelicula 
               [pelicula]="pelicula"
               [i]="i"
               (MarcarFavorita)="mostrarFavorita($event)"
             ></app-pelicula>
-              <!-- Traje el Output del componente hijo(MarcarFavorita) y hago un metodo donde paso el evento -->
           </div>
     </div>
   </section>

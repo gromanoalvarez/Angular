@@ -9,29 +9,8 @@
     />
   </div>
   <h2>{{ i }}. {{ pelicula.title }}</h2>
-  <!-- i para mostrar la posicion y luego el titulo de cada pelicula-->
   <span class="date"> Hace 5 minutos </span>
-  <!-- DIRECTIVAS DE ATRIBUTO
-opcion 1...  [style.background]  ? si se cumple : si no se cumple   
-            <span class="year" [style.background]="peli.year > 2016 ? 'green' : 'red' " >
-                {{peli.year}}
-            </span>
-opcion 2... 
-                   <span class="year" [ngStyle]="{
-                                        'year-green': peli.year > 2016,
-                                        'year-red' : peli.year < 2016
-                                        }" >
-                    {{peli.year}}
-                </span>
-opcion 3... 
-                   <span class="year" [class.CLASE CREADA EN CSS]="CONDICION" >
-                    {{peli.year}}
-                </span>
-                            <span class="year" [class.year-green]="peli.year > 2016" 
-                    [class.year-red]="peli.year < 2016">
-                    {{peli.year}}
-                </span>
-opcion 4... -->
+
   <span
     class="year"
     [ngClass]="{
@@ -43,11 +22,8 @@ opcion 4... -->
   </span>
 
   <a href="#">Leer más</a>
-  <!-- Directiva de Evento click 
-        Dispara un evento que llama a un metodo seleccionar que PASARA PARAMETRO AL COMPONENTE PADRE
-        -->
+
   <button (click)="seleccionar($event, pelicula)">Seleccionar como Favorita</button>
 
   <div class="clearfix"></div>
-  <!--LIMPIA-->
 </article>

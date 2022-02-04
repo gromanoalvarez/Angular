@@ -140,13 +140,17 @@ slider-big {
   );
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#e73827', GradientType=1 );
 }
+#slider h1{
+  font-size: xx-large;
+  font-family: "Pushster", cursive;
+}
 
-#slider h1 {
+#slider h2 {
   font-size: xx-large;
   font-family: "Pushster", cursive;
   position: absolute;
-  bottom: -120px;
-  left: 10%;
+  bottom: -2em;
+  right: 5%;
 }
 #slider a span {
   font-size: small;

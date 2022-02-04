@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-//ESTO ES UN "DECORADOR": una funcionalidad que modifica el comportamiento de la clase
+
 @Component({ 
   selector: 'app-root',// etiqueta <app-root> 
   templateUrl: './app.component.html', // VISTA DE ESTE COMPONENTE

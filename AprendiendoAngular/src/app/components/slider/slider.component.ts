@@ -7,7 +7,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SliderComponent implements OnInit {
   //decorador @Input
-
   @Input() directivaNombre: string;
   @Input() size: string;
 

@@ -1,11 +1,10 @@
 <!-- PASAR DESDE COMPONENTE PADRE A COMPONENTE HIJO:
 APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
-Con la directivaNombre le paso el homeText(creado en app.component.ts) al componente hijo slider -->
+Con la directivaNombre le paso el texto 'Formulario' al componente hijo slider -->
 <app-slider [directivaNombre]="'Formulario'" [size]="'small'"></app-slider>
 
 <div class="center">
   <section id="content">
-    <h1 class="subheader">Formulario</h1>
 
     <!-- Para que el form sea reactivo en Angular y funcione y valide debo 
     1ro importar en app.module.ts el FormsModule y cargar en imports del mismo 
