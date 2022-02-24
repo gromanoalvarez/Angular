@@ -7,7 +7,6 @@
     background-color: rgb(185, 17, 17);
 }
 #slider h1{
-    padding-top: 0.3em !important;
-    font-size: 84px;
-    color: azure !important;
+    font-size: 4rem;
+    color:  rgb(185, 17, 17) !important;
 }

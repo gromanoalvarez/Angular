@@ -1,15 +1,13 @@
-<!-- Uso la directiva ngClass para recibir un parametro del padre e identificar que stilo poner al slider -->
 <div id="slider" [ngClass]="{
     'slider-big': !size || size == 'big',
     'slider-small': size == 'small'
 }">
-
-    <!-- Llamo una propiedad del COMPONENTE PADRE -->
-    <h1 *ngIf="size == 'small'" style="margin-top:0; padding-top: 2em;">{{directivaNombre}}</h1> 
+    <div *ngIf="size == 'small'" style="margin-top:0;">
+        <h1>{{directivaNombre}}</h1>
+    </div> 
 
     <div *ngIf=" !size || size == 'big' ">
-        <h2>{{directivaNombre}}</h2>
-        <!-- IMPORTANTE ROUTERLINK PARA HACER ENLACE -->
+        <h1>{{directivaNombre}}</h1>
         <a [routerLink]="['/blog']" class="btn-white" >
             <span id="irAlBlog0"> Acesse o Blog</span><br>
             <span id="irAlBlog1">Go To The Blog</span><br>
