@@ -2,14 +2,12 @@
 APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
 Con la directivaNombre le paso el 'texto' al componente hijo slider, es decir le paso un dato variable desde cada pestaña -->
 <app-slider
-  [directivaNombre]="
-    'You Rock'
-  "
+  [directivaNombre]="'You Rock'"
 ></app-slider>
 
 <div class="center">
   <section id="content">
-    <h1 class="subheader">Página de Pruebas</h1>
+    <h1 class="subheader">Pruebas a través de la URL</h1>
 
     <!-- 1ra opcion: Directivas "condicionales" *ngIf
     Si se cumple la condición muestra el contenido de la etiqueta sino no.
@@ -32,17 +30,42 @@ Con la directivaNombre le paso el 'texto' al componente hijo slider, es decir le
 
     <ng-template #siHayParametros>
       <h2>
-        Ingresamos los parámetro OBLIGATORIO U OPCIONAL de URL: <br />
+        Primero prueba poner en la URL tu nombre y apellido
+        <br/>
+        <br/>
+        A continuación se verá el resultado aquí:
+        <br/>
+      </h2>
+      <h3>
         Nombres: {{ nombres }} <br />
         Apellidos: {{ apellidos }}
-      </h2>
+      </h3>
     </ng-template>
 
     <ng-template #noHayParametros>
       <h2>No hay parámetros ingresados por la URL</h2>
     </ng-template>
 
-    <button (click)="redireccion()">Click <br> (Ingresarás nombres y apellidos por URL)</button>
+    <button (click)="redireccion()">Ingresar nombres y apellidos por URL</button>
+    <br>
+    <br>
+
+    <hr>
+
+    <h2 class="subheader">Pruebas de Eventos</h2>
+    <p> Al hacer click aparecerá un saludo   </p>
+    <button (click)="hasDadoClick()">Evento click</button>
+    <br>
+    <br>
+    <input type="text" [(ngModel)]="campo" (blur)="hasSalido()"  placeholder="Evento blur: Si entras a este campo y luego sales aparecerá un saludo">
+    {{campo}}
+    <br>
+    <br>
+    <input type="text" [(ngModel)]="campo2" (keyup.enter)="hasPulsadoEnter()"  placeholder="Evento keyUp: Enviará un saludo cuando presiones Enter dentro del campo">
+    {{campo2}}
+
+
   </section>
+
   <app-sidebar></app-sidebar>
 </div>

@@ -12,6 +12,8 @@ export class PaginaComponent implements OnInit {
 
   public nombres: string;
   public apellidos: string;
+  public campo: string;
+  public campo2: string;
 
         /**Con Route vamos a sacar los parametros de la URL
      * con el Router reditecciones a otras paginas
@@ -19,6 +21,8 @@ export class PaginaComponent implements OnInit {
   constructor(private _route: ActivatedRoute, private _router: Router) {
     this.nombres="";
     this.apellidos="";
+    this.campo="";
+    this.campo2="";
    }
 
    /**PRIMER METODO QUE EJECUTA LUEGO DEL CONSTRUCTOR */
@@ -36,6 +40,16 @@ export class PaginaComponent implements OnInit {
     
     //sino tambien puedo pasar incluso dentro de la misma pagina parametros
     this._router.navigate(['pagina-de-pruebas', 'CompletarNombresEnURL', 'CompletarLosApellidosEnURL']);
+  }
+
+  hasDadoClick(){
+    alert('Genial, todo ha salido perfecto!');
+  }
+  hasSalido(){
+    alert('Has salido del campo a rellenar');
+  }
+  hasPulsadoEnter(){
+    alert('Has pulsado la tecla enter en el campo');
   }
 
 }

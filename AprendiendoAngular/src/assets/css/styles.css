@@ -10,6 +10,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Indie+Flower&family=Meddon&family=Mitr:wght@300&family=Monoton&family=Notable&family=Pushster&family=Raleway+Dots&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Indie+Flower&family=Mitr:wght@300&family=Monoton&family=Pushster&family=Raleway+Dots&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Indie+Flower&family=Mitr:wght@300&family=Monoton&family=Pushster&display=swap");
+
 body {
   text-align: center;
   margin: 0px;
@@ -20,6 +21,8 @@ body {
   -webkit-font-smoothing: antialiased; /*Suavisa la fuente*/
   -moz-font-smoothing: antialiased; /*Para mozila*/
   -moz-osx-font-smoothing: antialiased; /*Para mac*/
+  background: white;
+  color: #000;
 }
 #header {
   height: 120px;

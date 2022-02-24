@@ -1,13 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+//Para que Peticiones AJAX funcione
+import { HttpClientModule } from '@angular/common/http'; 
+//MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
+import { routing, appRoutingProviders } from './app.routing'; 
+//Formulario
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; //Para que Peticiones AJAX funcione
+//Librerias
 import { MomentModule } from 'angular2-moment';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
+//Pipes
+import { EsParPipe } from './pipes/espar.pipe';
 
-import { routing, appRoutingProviders } from './app.routing'; //MODULO y SERVICIO para que anden las rutas y navegar por urls con angular
-
-import { AppComponent } from './app.component'; //LO QUE SE DEBE PONER EN "declarations:[AppComponent]"
+//Componentes 
+import { AppComponent } from './app.component'; //componente principal SE DEBE PONER EN "declarations" y en "bootstrap"
 import { MiComponente } from './components/mi-componente/mi-componente.component';
 import { PeliculasComponent } from './components/peliculas/peliculas.component';
 import { PruebasComponent } from './components/pruebas/pruebas.component';
@@ -27,7 +33,6 @@ import { SearchComponent } from './components/search/search.component';
 import { ArticleNewComponent } from './components/article-new/article-new.component';
 import { ArticleEditComponent } from './components/article-edit/article-edit.component';
 
-import { EsParPipe } from './pipes/espar.pipe';
 
 @NgModule({
   declarations: [

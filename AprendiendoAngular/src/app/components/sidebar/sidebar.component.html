@@ -1,19 +1,16 @@
 <aside id="sidebar">
     <div id="nav-blog" class="sidebar-item">
-        <h3>Puedes hacer esto</h3>
+        <h3>Puedes participar haciendo tu posteo</h3>
         <a [routerLink]="['/blog/crear']" class="btn btn-success">Crear artículo</a>
     </div>
     <div id="search" class="sidebar-item">
         <h3>Buscador</h3>
         <p>Encuentra el artículo que buscas</p>
-        <!-- con # le pongo nombre y le indico que pertenece a angular con ngForm
-        (ngSubmit) es el EVENTO de enviar el form y redirige al metodo goSearch() -->
         <form #searchForm="ngForm" (ngSubmit)="goSearch()">
-            <!-- con ngModel le digo que el valor ingresado me modifique la propiedad searchString del componente -->
             <input type="text" name="search" [(ngModel)]="searchString"> 
             <input type="submit" name="submit" value="buscar">
         </form>
     </div>
 </aside>
 
-<div class="clearfix"></div> <!--esa clase limpia los flotados-->
+<div class="clearfix"></div> 

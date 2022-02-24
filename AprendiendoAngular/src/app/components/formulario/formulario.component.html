@@ -1,6 +1,3 @@
-<!-- PASAR DESDE COMPONENTE PADRE A COMPONENTE HIJO:
-APP.COMPONENT.HTML ES EL "COMPONENTE PADRE" DE APP.SLIDER
-Con la directivaNombre le paso el texto 'Formulario' al componente hijo slider -->
 <app-slider 
   [directivaNombre]="'Formulario'"
   [size]="'small'"
@@ -8,22 +5,12 @@ Con la directivaNombre le paso el texto 'Formulario' al componente hijo slider -
 
 <div class="center">
   <section id="content">
-
-    <!-- Para que el form sea reactivo en Angular y funcione y valide debo 
-    1ro importar en app.module.ts el FormsModule y cargar en imports del mismo 
-    2do usar el evento (ngSubmit) para vincular con metodo onSubmit al ts
-    3ro poner nombre al form con #userForm="ngForm" 
-    4to poner el nombre para angular a cada input #nombre="ngModel"
-    5to decirle que campo del objeto .ts va a rellenar:
-      [(ngModel)]="user.nombre" 
-    donde [(ngModel)] es la etiqueta de binding bidireccional
-    y "user.nombre" es el campo de mi objeto user que llenará-->
     <form class="mid-form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+      <p>Este formulario es para registrarte y poder participar en el blog</p>
       
       <div class="form-group">
         <label for="nombre">Nombre: {{user.nombre}}</label>
-        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre" required pattern="[a-zA-Z]+"/>
-          <!-- Validacion con angular -->
+        <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="user.nombre" required pattern="[a-zA-Z ]+"/>
         <small *ngIf=" !nombre.valid && nombre.touched">
           El nombre no es válido
         </small>
@@ -31,7 +18,7 @@ Con la directivaNombre le paso el texto 'Formulario' al componente hijo slider -
 
       <div class="form-group">
         <label for="apellidos">Apellidos: {{user.apellidos}}</label>
-        <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" required pattern="[a-zA-Z]+" />
+        <input type="text" name="apellidos" #apellidos="ngModel" [(ngModel)]="user.apellidos" required pattern="[a-zA-Z ]+" />
         <small *ngIf=" !apellidos.valid && apellidos.touched">
           Los apellidos no son válidos
         </small>
@@ -54,19 +41,24 @@ Con la directivaNombre le paso el texto 'Formulario' al componente hijo slider -
         <small *ngIf=" !genero.valid && genero.touched">
           El género no es válido
         </small>
-
       </div>
 
       <div class="clearfix"></div>
-
-
+      <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid"/>
       <!-- La validacion:
         1ro. se hace con html5 y js a traves de "required" y pattern="[regEx]+"
         2do. con angular:  <small *ngIf=" !nombre.valid && nombre.touched">
         3ro en el boton submit que no envie el form si tiene un error con
         el [disabled]
       -->
-      <input type="submit" value="Enviar" class="btn btn-success" [disabled]="userForm.invalid" />
+<div *ngIf="userForm.invalid; then formInvalid else formValid"></div>
+<ng-template #formInvalid>El formulario es invalido, no se podrá enviar. Por favor completa todos los campos. </ng-template>
+<ng-template #formValid>Formulario completado con éxito, se podrá enviar </ng-template>
+
+<!-- ?<div con *ngIf ="nombre; THEN siHayParametros ELSE noHayParametros"></div>
+?<ng-template #siHayParametros>VERDADERO</ng-template>
+?<ng-template #noHayParametros>FALSO</ng-template> -->
+
     </form>
 
     <div *ngIf="user.nombre">
@@ -78,23 +70,6 @@ Con la directivaNombre le paso el texto 'Formulario' al componente hijo slider -
          <br>
          {{user.bio}}</p>
     </div>
-
-    <hr>
-
-    <h2 class="subheader">Eventos</h2>
-    <!-- (click) para cuando hago click -->
-    <button (click)="hasDadoClick()">Evento click</button>
-    <br>
-    <br>
-    <!-- (blur) para cuando entro al campo y luego salgo de un campo  -->
-    <input type="text" [(ngModel)]="campo" (blur)="hasSalido()"  placeholder="Evento blur">
-    {{campo}}
-    <br>
-    <br>
-    <!-- (keyUp) para cuando entro al campo, pulso la tecla y la levanto -->
-    <input type="text" [(ngModel)]="campo2" (keyup.enter)="hasPulsadoEnter()"  placeholder="Evento keyUp detectando en enter">
-    {{campo2}}
-
   </section>
   <app-sidebar></app-sidebar>
 </div>
